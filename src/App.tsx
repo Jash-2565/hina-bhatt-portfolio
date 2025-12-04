@@ -426,8 +426,8 @@ const Portfolio = () => {
 
       {/* MODAL: Artwork Details */}
       {selectedArt && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-md animate-fade-in">
-          <div className="bg-white w-full max-w-6xl max-h-[90vh] overflow-hidden rounded-sm shadow-2xl relative flex flex-col md:flex-row animate-scale-up">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-0 md:p-4 bg-black/90 backdrop-blur-md animate-fade-in">
+          <div className="bg-white w-full h-full md:h-auto md:max-w-6xl md:max-h-[90vh] overflow-hidden rounded-none md:rounded-sm shadow-2xl relative flex flex-col md:flex-row animate-scale-up">
             <button 
               onClick={() => setSelectedArt(null)}
               className="absolute top-4 right-4 z-20 p-2 bg-white/80 hover:bg-white text-gray-900 rounded-full transition-colors shadow-sm"
@@ -436,7 +436,7 @@ const Portfolio = () => {
             </button>
             
             {/* Image Container */}
-            <div className="w-full md:w-2/3 h-[50vh] md:h-auto bg-stone-100 flex items-center justify-center p-8 md:p-12 relative overflow-hidden">
+            <div className="w-full md:w-2/3 h-[50vh] md:h-auto bg-stone-100 flex items-center justify-center p-4 md:p-12 relative overflow-hidden flex-shrink-0">
                {selectedArt.image ? (
                 <img 
                   src={selectedArt.image} 
@@ -452,7 +452,7 @@ const Portfolio = () => {
             </div>
             
             {/* Details Container */}
-            <div className="w-full md:w-1/3 bg-white p-6 md:p-8 overflow-y-auto flex flex-col justify-center border-l border-stone-100 h-auto md:h-full">
+            <div className="w-full md:w-1/3 bg-white p-6 md:p-8 overflow-y-auto flex flex-col justify-center border-l border-stone-100 flex-grow">
               <div className="mb-auto hidden md:block"></div>
               
               <div>
