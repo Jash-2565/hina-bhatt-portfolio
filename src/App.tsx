@@ -449,7 +449,7 @@ const Portfolio = () => {
                   src={selectedArt.image} 
                   alt={selectedArt.title} 
                   referrerPolicy="no-referrer"
-                  className="w-full h-full object-contain shadow-lg"
+                  className="w-full h-full object-contain"
                 />
               ) : (
                 <span className="text-stone-400 font-serif flex flex-col items-center">
