@@ -47,7 +47,7 @@ const Portfolio = () => {
       medium: "Oil on Canvas", 
       price: "$1,000", 
       color: "bg-amber-100",
-      image: "[https://i.postimg.cc/v8fYz9RZ/9103CEB7-507C-4DE0-8DC3-332BFE96CE70-1-102-o.jpg](https://i.postimg.cc/v8fYz9RZ/9103CEB7-507C-4DE0-8DC3-332BFE96CE70-1-102-o.jpg)" 
+      image: "https://i.postimg.cc/v8fYz9RZ/9103CEB7-507C-4DE0-8DC3-332BFE96CE70-1-102-o.jpg" 
     },
     { 
       id: 2, 
@@ -56,7 +56,7 @@ const Portfolio = () => {
       medium: "Oil on Canvas", 
       price: "$2,250", 
       color: "bg-orange-100",
-      image: "[https://i.postimg.cc/J0Y5thNW/F04A3B1D-B158-4256-ABD8-427EFE983C0C-1-102-o.jpg](https://i.postimg.cc/J0Y5thNW/F04A3B1D-B158-4256-ABD8-427EFE983C0C-1-102-o.jpg)"
+      image: "https://i.postimg.cc/J0Y5thNW/F04A3B1D-B158-4256-ABD8-427EFE983C0C-1-102-o.jpg"
     },
     { 
       id: 3, 
@@ -65,7 +65,7 @@ const Portfolio = () => {
       medium: "Oil on Canvas", 
       price: "$1,000", 
       color: "bg-yellow-100", 
-      image: "[https://i.postimg.cc/Df96XSLv/35D9FB1B-ED18-4A73-A34A-378C22D9E62D-1-102-o.jpg](https://i.postimg.cc/Df96XSLv/35D9FB1B-ED18-4A73-A34A-378C22D9E62D-1-102-o.jpg)" 
+      image: "https://i.postimg.cc/Df96XSLv/35D9FB1B-ED18-4A73-A34A-378C22D9E62D-1-102-o.jpg" 
     },
     { 
       id: 4, 
@@ -74,7 +74,7 @@ const Portfolio = () => {
       medium: "Oil on Canvas", 
       price: "$3,750", 
       color: "bg-rose-100", 
-      image: "[https://i.postimg.cc/P538179w/FD571F0D-5DE6-44B2-870D-97971731E75A-1-102-o.jpg](https://i.postimg.cc/P538179w/FD571F0D-5DE6-44B2-870D-97971731E75A-1-102-o.jpg)" 
+      image: "https://i.postimg.cc/P538179w/FD571F0D-5DE6-44B2-870D-97971731E75A-1-102-o.jpg" 
     },
     { 
       id: 5, 
@@ -83,7 +83,7 @@ const Portfolio = () => {
       medium: "Oil on Canvas", 
       price: "$3,750", 
       color: "bg-red-50", 
-      image: "[https://i.postimg.cc/dV1hQB3T/33137944-AAD5-4530-91D3-75170872CCE2-4-5005-c.jpg](https://i.postimg.cc/dV1hQB3T/33137944-AAD5-4530-91D3-75170872CCE2-4-5005-c.jpg)" 
+      image: "https://i.postimg.cc/dV1hQB3T/33137944-AAD5-4530-91D3-75170872CCE2-4-5005-c.jpg" 
     },
     { 
       id: 6, 
@@ -92,7 +92,7 @@ const Portfolio = () => {
       medium: "Oil on Canvas", 
       price: "$2,250", 
       color: "bg-emerald-50", 
-      image: "[https://i.postimg.cc/QdHMZdYL/5A38C771-458A-4A15-AD72-94BE02FBC99F-1-102-o.jpg](https://i.postimg.cc/QdHMZdYL/5A38C771-458A-4A15-AD72-94BE02FBC99F-1-102-o.jpg)" 
+      image: "https://i.postimg.cc/QdHMZdYL/5A38C771-458A-4A15-AD72-94BE02FBC99F-1-102-o.jpg" 
     },
     { 
       id: 7, 
@@ -101,7 +101,7 @@ const Portfolio = () => {
       medium: "Oil on Canvas", 
       price: "$2,250", 
       color: "bg-teal-50", 
-      image: "[https://i.postimg.cc/TwqdJL1t/6187CAF2-89F4-4B6F-A3AC-2CD338AEAC9C-1-102-o.jpg](https://i.postimg.cc/TwqdJL1t/6187CAF2-89F4-4B6F-A3AC-2CD338AEAC9C-1-102-o.jpg)" 
+      image: "https://i.postimg.cc/TwqdJL1t/6187CAF2-89F4-4B6F-A3AC-2CD338AEAC9C-1-102-o.jpg" 
     },
     { 
       id: 8, 
@@ -110,7 +110,7 @@ const Portfolio = () => {
       medium: "Oil on Canvas", 
       price: "$1,563", 
       color: "bg-blue-50", 
-      image: "[https://i.postimg.cc/25nrCb4J/702E2988-D099-4287-B8C3-0A0FA85DAA2F-1-102-o.jpg](https://i.postimg.cc/25nrCb4J/702E2988-D099-4287-B8C3-0A0FA85DAA2F-1-102-o.jpg)" 
+      image: "https://i.postimg.cc/25nrCb4J/702E2988-D099-4287-B8C3-0A0FA85DAA2F-1-102-o.jpg" 
     },
     { 
       id: 9, 
@@ -119,7 +119,7 @@ const Portfolio = () => {
       medium: "Oil on Canvas", 
       price: "$1,563", 
       color: "bg-indigo-50", 
-      image: "[https://i.postimg.cc/CMrGGz8B/7F9A83C4-D794-4A1B-A540-234ABE244A1A-1-102-o.jpg](https://i.postimg.cc/CMrGGz8B/7F9A83C4-D794-4A1B-A540-234ABE244A1A-1-102-o.jpg)" 
+      image: "https://i.postimg.cc/CMrGGz8B/7F9A83C4-D794-4A1B-A540-234ABE244A1A-1-102-o.jpg" 
     },
     { 
       id: 10, 
@@ -128,7 +128,7 @@ const Portfolio = () => {
       medium: "Oil on Canvas", 
       price: "$1,563", 
       color: "bg-violet-50", 
-      image: "[https://i.postimg.cc/d1L8pFPK/1D297077-5ABE-497D-8C41-3A66CA85C28E-1-102-o.jpg](https://i.postimg.cc/d1L8pFPK/1D297077-5ABE-497D-8C41-3A66CA85C28E-1-102-o.jpg)" 
+      image: "https://i.postimg.cc/d1L8pFPK/1D297077-5ABE-497D-8C41-3A66CA85C28E-1-102-o.jpg" 
     },
     { 
       id: 11, 
@@ -138,7 +138,7 @@ const Portfolio = () => {
       price: "$4,000", 
       extra: "Total: 16 sq. ft", 
       color: "bg-purple-100", 
-      image: "[https://i.postimg.cc/T3d5BxnX/EFC580D6-9826-4216-9297-EE776C0B08D0-1-102-o.jpg](https://i.postimg.cc/T3d5BxnX/EFC580D6-9826-4216-9297-EE776C0B08D0-1-102-o.jpg)" 
+      image: "https://i.postimg.cc/T3d5BxnX/EFC580D6-9826-4216-9297-EE776C0B08D0-1-102-o.jpg" 
     },
   ];
 
