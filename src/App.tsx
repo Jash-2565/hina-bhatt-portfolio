@@ -426,21 +426,22 @@ const Portfolio = () => {
 
       {/* MODAL: Artwork Details */}
       {selectedArt && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fade-in">
-          <div className="bg-white rounded-lg shadow-2xl max-w-lg w-full overflow-hidden relative animate-scale-up">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-md animate-fade-in">
+          <div className="bg-white w-full max-w-6xl max-h-[90vh] overflow-hidden rounded-sm shadow-2xl relative flex flex-col md:flex-row animate-scale-up">
             <button 
               onClick={() => setSelectedArt(null)}
-              className="absolute top-4 right-4 p-2 bg-white/50 hover:bg-white rounded-full transition-colors z-10"
+              className="absolute top-4 right-4 md:left-4 md:right-auto z-10 p-2 bg-white/80 hover:bg-white text-gray-900 rounded-full transition-colors shadow-sm"
             >
-              <X className="w-6 h-6 text-gray-800" />
+              <X className="w-5 h-5" />
             </button>
             
-            <div className={`aspect-video w-full bg-stone-100 flex items-center justify-center bg-stone-100`}>
-              {selectedArt.image ? (
+            {/* Image Container */}
+            <div className="w-full md:w-2/3 bg-stone-100 flex items-center justify-center p-8 md:p-12 relative overflow-hidden">
+               {selectedArt.image ? (
                 <img 
                   src={selectedArt.image} 
                   alt={selectedArt.title} 
-                  className="w-full h-full object-contain max-h-[60vh]"
+                  className="max-w-full max-h-[50vh] md:max-h-[80vh] object-contain shadow-lg"
                 />
               ) : (
                 <span className="text-stone-400 font-serif flex flex-col items-center">
@@ -450,32 +451,39 @@ const Portfolio = () => {
               )}
             </div>
             
-            <div className="p-8">
-              <h3 className="text-3xl font-serif text-gray-900 mb-2">{selectedArt.title}</h3>
-              <div className="h-1 w-16 bg-stone-300 mb-6"></div>
+            {/* Details Container */}
+            <div className="w-full md:w-1/3 bg-white p-8 overflow-y-auto flex flex-col justify-center border-l border-stone-100">
+              <div className="mb-auto hidden md:block"></div> {/* Spacer to center vertically if needed */}
               
-              <div className="grid grid-cols-2 gap-y-4 text-sm mb-8">
-                <div>
-                  <p className="text-stone-400 uppercase tracking-widest text-xs">Size</p>
-                  <p className="font-medium text-gray-700">{selectedArt.size}</p>
-                </div>
-                <div>
-                  <p className="text-stone-400 uppercase tracking-widest text-xs">Medium</p>
-                  <p className="font-medium text-gray-700">{selectedArt.medium}</p>
-                </div>
-                {selectedArt.extra && (
-                  <div className="col-span-2">
-                    <p className="text-stone-400 uppercase tracking-widest text-xs">Details</p>
-                    <p className="font-medium text-gray-700">{selectedArt.extra}</p>
+              <div>
+                <h3 className="text-3xl md:text-4xl font-serif text-gray-900 mb-4">{selectedArt.title}</h3>
+                <div className="h-1 w-12 bg-gray-900 mb-8"></div>
+                
+                <div className="space-y-4 text-sm tracking-wide">
+                  <div>
+                    <p className="text-stone-400 uppercase text-xs mb-1">Dimensions</p>
+                    <p className="font-medium text-gray-800 text-base">{selectedArt.size}</p>
                   </div>
-                )}
+                  <div>
+                    <p className="text-stone-400 uppercase text-xs mb-1">Medium</p>
+                    <p className="font-medium text-gray-800 text-base">{selectedArt.medium}</p>
+                  </div>
+                  {selectedArt.extra && (
+                  <div>
+                    <p className="text-stone-400 uppercase text-xs mb-1">Details</p>
+                    <p className="font-medium text-gray-800 text-base">{selectedArt.extra}</p>
+                  </div>
+                  )}
+                </div>
+
+                <div className="mt-12 pt-8 border-t border-stone-100">
+                  <p className="text-stone-400 uppercase text-xs mb-1">Price</p>
+                  <p className="text-3xl font-serif text-gray-900">{selectedArt.price}</p>
+                </div>
               </div>
 
-              <div className="flex items-center justify-between border-t border-stone-100 pt-6">
-                <div>
-                  <p className="text-stone-400 uppercase tracking-widest text-xs">Price</p>
-                  <p className="text-2xl font-serif text-gray-900">{selectedArt.price}</p>
-                </div>
+              <div className="mt-auto pt-8">
+                 {/* Optional footer content for modal */}
               </div>
             </div>
           </div>
