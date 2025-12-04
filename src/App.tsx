@@ -427,8 +427,14 @@ const Portfolio = () => {
 
       {/* MODAL: Artwork Details */}
       {selectedArt && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-4 bg-black/80 backdrop-blur-sm animate-fade-in">
-          <div className="bg-white w-full max-w-sm md:max-w-6xl md:max-h-[90vh] overflow-hidden rounded-xl shadow-2xl relative flex flex-col md:flex-row animate-scale-up">
+        <div 
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-4 bg-black/80 backdrop-blur-sm animate-fade-in"
+          onClick={() => setSelectedArt(null)} // Close when clicking backdrop
+        >
+          <div 
+            className="bg-white w-full max-w-sm md:max-w-6xl md:max-h-[90vh] overflow-hidden rounded-xl shadow-2xl relative flex flex-col md:flex-row animate-scale-up"
+            onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside
+          >
             <button 
               onClick={() => setSelectedArt(null)}
               className="absolute top-2 right-2 md:top-4 md:right-4 z-20 p-1.5 md:p-2 bg-white/80 hover:bg-white text-gray-900 rounded-full transition-colors shadow-sm"
@@ -494,8 +500,14 @@ const Portfolio = () => {
 
       {/* MODAL: QR Code */}
       {showQR && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fade-in">
-          <div className="bg-white p-8 rounded-lg shadow-2xl text-center max-w-sm w-full relative">
+        <div 
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fade-in"
+          onClick={() => setShowQR(false)} // Close when clicking backdrop
+        >
+          <div 
+            className="bg-white p-8 rounded-lg shadow-2xl text-center max-w-sm w-full relative"
+            onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside
+          >
             <button 
               onClick={() => setShowQR(false)}
               className="absolute top-2 right-2 p-2 hover:bg-stone-100 rounded-full"
