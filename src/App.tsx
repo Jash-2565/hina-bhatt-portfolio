@@ -258,7 +258,7 @@ const Portfolio = () => {
                   className="group cursor-pointer bg-white rounded-sm shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 overflow-hidden"
                 >
                   {/* Image Display Logic */}
-                  <div className={`aspect-square w-full bg-stone-100 flex items-center justify-center relative overflow-hidden`}>
+                  <div className={`aspect-square w-full bg-stone-100 flex items-center justify-center relative overflow-hidden pt-4`}>
                     {art.image ? (
                       <img 
                         src={art.image} 
@@ -437,7 +437,7 @@ const Portfolio = () => {
             </button>
             
             {/* Image Container */}
-            <div className="w-full md:w-2/3 h-48 sm:h-64 md:h-auto flex items-center justify-center relative overflow-hidden flex-shrink-0">
+            <div className="w-full md:w-2/3 h-48 sm:h-64 md:h-auto flex items-center justify-center relative overflow-hidden flex-shrink-0 pt-4">
                {selectedArt.image ? (
                 <img 
                   src={selectedArt.image} 
