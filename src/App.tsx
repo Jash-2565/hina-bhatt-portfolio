@@ -255,7 +255,7 @@ const Portfolio = () => {
                 <div 
                   key={art.id} 
                   onClick={() => setSelectedArt(art)}
-                  className="group cursor-pointer bg-white rounded-sm shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 overflow-hidden"
+                  className="group cursor-pointer bg-white rounded-sm transition-all duration-300 transform hover:-translate-y-1 overflow-hidden"
                 >
                   {/* Image Display Logic */}
                   <div className={`aspect-square w-full flex items-center justify-center relative overflow-hidden`}>
@@ -432,12 +432,12 @@ const Portfolio = () => {
           onClick={() => setSelectedArt(null)} // Close when clicking backdrop
         >
           <div 
-            className="bg-white w-full max-w-sm md:max-w-6xl md:max-h-[90vh] overflow-hidden rounded-xl shadow-2xl relative flex flex-col md:flex-row animate-scale-up"
+            className="bg-white w-full max-w-sm md:max-w-6xl md:max-h-[90vh] overflow-hidden rounded-xl relative flex flex-col md:flex-row animate-scale-up"
             onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside
           >
             <button 
               onClick={() => setSelectedArt(null)}
-              className="absolute top-2 right-2 md:top-4 md:right-4 z-20 p-1.5 md:p-2 bg-white/80 hover:bg-white text-gray-900 rounded-full transition-colors shadow-sm"
+              className="absolute top-2 right-2 md:top-4 md:right-4 z-20 p-1.5 md:p-2 bg-white/80 hover:bg-white text-gray-900 rounded-full transition-colors"
             >
               <X className="w-4 h-4 md:w-5 md:h-5" />
             </button>
@@ -460,7 +460,7 @@ const Portfolio = () => {
             </div>
             
             {/* Details Container */}
-            <div className="w-full md:w-1/3 bg-white p-5 md:p-8 flex flex-col justify-center border-l border-stone-100 flex-grow">
+            <div className="w-full md:w-1/3 bg-white p-5 md:p-8 flex flex-col justify-center md:border-l border-stone-100 flex-grow">
               <div className="mb-auto hidden md:block"></div>
               
               <div>
