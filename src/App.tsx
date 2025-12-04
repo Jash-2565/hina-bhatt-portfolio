@@ -258,7 +258,7 @@ const Portfolio = () => {
                   className="group cursor-pointer bg-white rounded-sm shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 overflow-hidden"
                 >
                   {/* Image Display Logic */}
-                  <div className={`aspect-square w-full flex items-center justify-center relative overflow-hidden p-4 md:p-8`}>
+                  <div className={`aspect-square w-full flex items-center justify-center relative overflow-hidden`}>
                     {art.image ? (
                       <img 
                         src={art.image} 
