@@ -426,8 +426,8 @@ const Portfolio = () => {
 
       {/* MODAL: Artwork Details */}
       {selectedArt && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-0 md:p-4 bg-black/90 backdrop-blur-md animate-fade-in">
-          <div className="bg-white w-full h-full md:h-auto md:max-w-6xl md:max-h-[90vh] overflow-hidden rounded-none md:rounded-sm shadow-2xl relative flex flex-col md:flex-row animate-scale-up">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-md animate-fade-in">
+          <div className="bg-white w-full max-h-[90vh] md:max-w-6xl overflow-hidden rounded-sm shadow-2xl relative flex flex-col md:flex-row animate-scale-up">
             <button 
               onClick={() => setSelectedArt(null)}
               className="absolute top-4 right-4 z-20 p-2 bg-white/80 hover:bg-white text-gray-900 rounded-full transition-colors shadow-sm"
