@@ -263,6 +263,7 @@ const Portfolio = () => {
                       <img 
                         src={art.image} 
                         alt={art.title} 
+                        referrerPolicy="no-referrer"
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                       />
                     ) : (
@@ -436,11 +437,12 @@ const Portfolio = () => {
             </button>
             
             {/* Image Container */}
-            <div className="w-full md:w-2/3 h-48 sm:h-64 md:h-auto bg-stone-100 flex items-center justify-center p-6 md:p-12 relative overflow-hidden flex-shrink-0">
+            <div className="w-full md:w-2/3 h-48 sm:h-64 md:h-auto flex items-center justify-center relative overflow-hidden flex-shrink-0">
                {selectedArt.image ? (
                 <img 
                   src={selectedArt.image} 
                   alt={selectedArt.title} 
+                  referrerPolicy="no-referrer"
                   className="w-full h-full object-contain shadow-lg"
                 />
               ) : (
