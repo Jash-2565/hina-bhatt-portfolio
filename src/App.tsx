@@ -47,7 +47,7 @@ const Portfolio = () => {
       medium: "Oil on Canvas", 
       price: "$1,000", 
       color: "bg-amber-100",
-      image: "https://i.postimg.cc/v8fYz9RZ/9103CEB7-507C-4DE0-8DC3-332BFE96CE70-1-102-o.jpg" 
+      image: "[https://i.postimg.cc/v8fYz9RZ/9103CEB7-507C-4DE0-8DC3-332BFE96CE70-1-102-o.jpg](https://i.postimg.cc/v8fYz9RZ/9103CEB7-507C-4DE0-8DC3-332BFE96CE70-1-102-o.jpg)" 
     },
     { 
       id: 2, 
@@ -56,7 +56,7 @@ const Portfolio = () => {
       medium: "Oil on Canvas", 
       price: "$2,250", 
       color: "bg-orange-100",
-      image: "https://i.postimg.cc/J0Y5thNW/F04A3B1D-B158-4256-ABD8-427EFE983C0C-1-102-o.jpg"
+      image: "[https://i.postimg.cc/J0Y5thNW/F04A3B1D-B158-4256-ABD8-427EFE983C0C-1-102-o.jpg](https://i.postimg.cc/J0Y5thNW/F04A3B1D-B158-4256-ABD8-427EFE983C0C-1-102-o.jpg)"
     },
     { 
       id: 3, 
@@ -65,7 +65,7 @@ const Portfolio = () => {
       medium: "Oil on Canvas", 
       price: "$1,000", 
       color: "bg-yellow-100", 
-      image: "https://i.postimg.cc/Df96XSLv/35D9FB1B-ED18-4A73-A34A-378C22D9E62D-1-102-o.jpg" 
+      image: "[https://i.postimg.cc/Df96XSLv/35D9FB1B-ED18-4A73-A34A-378C22D9E62D-1-102-o.jpg](https://i.postimg.cc/Df96XSLv/35D9FB1B-ED18-4A73-A34A-378C22D9E62D-1-102-o.jpg)" 
     },
     { 
       id: 4, 
@@ -74,7 +74,7 @@ const Portfolio = () => {
       medium: "Oil on Canvas", 
       price: "$3,750", 
       color: "bg-rose-100", 
-      image: "https://i.postimg.cc/P538179w/FD571F0D-5DE6-44B2-870D-97971731E75A-1-102-o.jpg" 
+      image: "[https://i.postimg.cc/P538179w/FD571F0D-5DE6-44B2-870D-97971731E75A-1-102-o.jpg](https://i.postimg.cc/P538179w/FD571F0D-5DE6-44B2-870D-97971731E75A-1-102-o.jpg)" 
     },
     { 
       id: 5, 
@@ -83,7 +83,7 @@ const Portfolio = () => {
       medium: "Oil on Canvas", 
       price: "$3,750", 
       color: "bg-red-50", 
-      image: "https://i.postimg.cc/dV1hQB3T/33137944-AAD5-4530-91D3-75170872CCE2-4-5005-c.jpg" 
+      image: "[https://i.postimg.cc/dV1hQB3T/33137944-AAD5-4530-91D3-75170872CCE2-4-5005-c.jpg](https://i.postimg.cc/dV1hQB3T/33137944-AAD5-4530-91D3-75170872CCE2-4-5005-c.jpg)" 
     },
     { 
       id: 6, 
@@ -92,7 +92,7 @@ const Portfolio = () => {
       medium: "Oil on Canvas", 
       price: "$2,250", 
       color: "bg-emerald-50", 
-      image: "https://i.postimg.cc/QdHMZdYL/5A38C771-458A-4A15-AD72-94BE02FBC99F-1-102-o.jpg" 
+      image: "[https://i.postimg.cc/QdHMZdYL/5A38C771-458A-4A15-AD72-94BE02FBC99F-1-102-o.jpg](https://i.postimg.cc/QdHMZdYL/5A38C771-458A-4A15-AD72-94BE02FBC99F-1-102-o.jpg)" 
     },
     { 
       id: 7, 
@@ -101,7 +101,7 @@ const Portfolio = () => {
       medium: "Oil on Canvas", 
       price: "$2,250", 
       color: "bg-teal-50", 
-      image: "https://i.postimg.cc/TwqdJL1t/6187CAF2-89F4-4B6F-A3AC-2CD338AEAC9C-1-102-o.jpg" 
+      image: "[https://i.postimg.cc/TwqdJL1t/6187CAF2-89F4-4B6F-A3AC-2CD338AEAC9C-1-102-o.jpg](https://i.postimg.cc/TwqdJL1t/6187CAF2-89F4-4B6F-A3AC-2CD338AEAC9C-1-102-o.jpg)" 
     },
     { 
       id: 8, 
@@ -110,7 +110,7 @@ const Portfolio = () => {
       medium: "Oil on Canvas", 
       price: "$1,563", 
       color: "bg-blue-50", 
-      image: "https://i.postimg.cc/25nrCb4J/702E2988-D099-4287-B8C3-0A0FA85DAA2F-1-102-o.jpg" 
+      image: "[https://i.postimg.cc/25nrCb4J/702E2988-D099-4287-B8C3-0A0FA85DAA2F-1-102-o.jpg](https://i.postimg.cc/25nrCb4J/702E2988-D099-4287-B8C3-0A0FA85DAA2F-1-102-o.jpg)" 
     },
     { 
       id: 9, 
@@ -119,7 +119,7 @@ const Portfolio = () => {
       medium: "Oil on Canvas", 
       price: "$1,563", 
       color: "bg-indigo-50", 
-      image: "https://i.postimg.cc/CMrGGz8B/7F9A83C4-D794-4A1B-A540-234ABE244A1A-1-102-o.jpg" 
+      image: "[https://i.postimg.cc/CMrGGz8B/7F9A83C4-D794-4A1B-A540-234ABE244A1A-1-102-o.jpg](https://i.postimg.cc/CMrGGz8B/7F9A83C4-D794-4A1B-A540-234ABE244A1A-1-102-o.jpg)" 
     },
     { 
       id: 10, 
@@ -128,7 +128,7 @@ const Portfolio = () => {
       medium: "Oil on Canvas", 
       price: "$1,563", 
       color: "bg-violet-50", 
-      image: "https://i.postimg.cc/d1L8pFPK/1D297077-5ABE-497D-8C41-3A66CA85C28E-1-102-o.jpg" 
+      image: "[https://i.postimg.cc/d1L8pFPK/1D297077-5ABE-497D-8C41-3A66CA85C28E-1-102-o.jpg](https://i.postimg.cc/d1L8pFPK/1D297077-5ABE-497D-8C41-3A66CA85C28E-1-102-o.jpg)" 
     },
     { 
       id: 11, 
@@ -138,7 +138,7 @@ const Portfolio = () => {
       price: "$4,000", 
       extra: "Total: 16 sq. ft", 
       color: "bg-purple-100", 
-      image: "https://i.postimg.cc/T3d5BxnX/EFC580D6-9826-4216-9297-EE776C0B08D0-1-102-o.jpg" 
+      image: "[https://i.postimg.cc/T3d5BxnX/EFC580D6-9826-4216-9297-EE776C0B08D0-1-102-o.jpg](https://i.postimg.cc/T3d5BxnX/EFC580D6-9826-4216-9297-EE776C0B08D0-1-102-o.jpg)" 
     },
   ];
 
@@ -426,17 +426,17 @@ const Portfolio = () => {
 
       {/* MODAL: Artwork Details */}
       {selectedArt && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-md animate-fade-in">
-          <div className="bg-white w-full max-h-[90vh] md:max-w-6xl overflow-hidden rounded-sm shadow-2xl relative flex flex-col md:flex-row animate-scale-up">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-4 bg-black/80 backdrop-blur-sm animate-fade-in">
+          <div className="bg-white w-full max-w-sm md:max-w-6xl md:max-h-[90vh] overflow-hidden rounded-xl shadow-2xl relative flex flex-col md:flex-row animate-scale-up">
             <button 
               onClick={() => setSelectedArt(null)}
-              className="absolute top-4 right-4 z-20 p-2 bg-white/80 hover:bg-white text-gray-900 rounded-full transition-colors shadow-sm"
+              className="absolute top-2 right-2 md:top-4 md:right-4 z-20 p-1.5 md:p-2 bg-white/80 hover:bg-white text-gray-900 rounded-full transition-colors shadow-sm"
             >
-              <X className="w-5 h-5" />
+              <X className="w-4 h-4 md:w-5 md:h-5" />
             </button>
             
             {/* Image Container */}
-            <div className="w-full md:w-2/3 h-[50vh] md:h-auto bg-stone-100 flex items-center justify-center p-4 md:p-12 relative overflow-hidden flex-shrink-0">
+            <div className="w-full md:w-2/3 h-48 sm:h-64 md:h-auto bg-stone-100 flex items-center justify-center p-6 md:p-12 relative overflow-hidden flex-shrink-0">
                {selectedArt.image ? (
                 <img 
                   src={selectedArt.image} 
@@ -452,37 +452,37 @@ const Portfolio = () => {
             </div>
             
             {/* Details Container */}
-            <div className="w-full md:w-1/3 bg-white p-6 md:p-8 overflow-y-auto flex flex-col justify-center border-l border-stone-100 flex-grow">
+            <div className="w-full md:w-1/3 bg-white p-5 md:p-8 flex flex-col justify-center border-l border-stone-100 flex-grow">
               <div className="mb-auto hidden md:block"></div>
               
               <div>
-                <h3 className="text-3xl md:text-4xl font-serif text-gray-900 mb-4">{selectedArt.title}</h3>
-                <div className="h-1 w-12 bg-gray-900 mb-6 md:mb-8"></div>
+                <h3 className="text-2xl md:text-4xl font-serif text-gray-900 mb-2 md:mb-4">{selectedArt.title}</h3>
+                <div className="h-0.5 w-12 bg-gray-900 mb-3 md:mb-8"></div>
                 
-                <div className="space-y-4 text-sm tracking-wide">
-                  <div>
-                    <p className="text-stone-400 uppercase text-xs mb-1">Dimensions</p>
-                    <p className="font-medium text-gray-800 text-base">{selectedArt.size}</p>
+                <div className="space-y-2 md:space-y-4 text-sm tracking-wide text-gray-600">
+                  <div className="flex md:block justify-between items-baseline">
+                    <p className="text-stone-400 uppercase text-[10px] md:text-xs mb-0 md:mb-1 mr-2">Dimensions</p>
+                    <p className="font-medium text-gray-900 text-sm md:text-base">{selectedArt.size}</p>
                   </div>
-                  <div>
-                    <p className="text-stone-400 uppercase text-xs mb-1">Medium</p>
-                    <p className="font-medium text-gray-800 text-base">{selectedArt.medium}</p>
+                  <div className="flex md:block justify-between items-baseline">
+                    <p className="text-stone-400 uppercase text-[10px] md:text-xs mb-0 md:mb-1 mr-2">Medium</p>
+                    <p className="font-medium text-gray-900 text-sm md:text-base">{selectedArt.medium}</p>
                   </div>
                   {selectedArt.extra && (
-                  <div>
-                    <p className="text-stone-400 uppercase text-xs mb-1">Details</p>
-                    <p className="font-medium text-gray-800 text-base">{selectedArt.extra}</p>
+                  <div className="flex md:block justify-between items-baseline">
+                    <p className="text-stone-400 uppercase text-[10px] md:text-xs mb-0 md:mb-1 mr-2">Details</p>
+                    <p className="font-medium text-gray-900 text-sm md:text-base">{selectedArt.extra}</p>
                   </div>
                   )}
                 </div>
 
-                <div className="mt-8 md:mt-12 pt-8 border-t border-stone-100">
-                  <p className="text-stone-400 uppercase text-xs mb-1">Price</p>
-                  <p className="text-3xl font-serif text-gray-900">{selectedArt.price}</p>
+                <div className="mt-4 md:mt-12 pt-3 md:pt-8 border-t border-stone-100 flex md:block justify-between items-end">
+                  <p className="text-stone-400 uppercase text-[10px] md:text-xs mb-0 md:mb-1">Price</p>
+                  <p className="text-2xl md:text-3xl font-serif text-gray-900">{selectedArt.price}</p>
                 </div>
               </div>
 
-              <div className="mt-auto pt-8">
+              <div className="mt-auto hidden md:block pt-8">
                  {/* Optional footer content for modal */}
               </div>
             </div>
