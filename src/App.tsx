@@ -258,13 +258,13 @@ const Portfolio = () => {
                   className="group cursor-pointer bg-white rounded-sm shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 overflow-hidden"
                 >
                   {/* Image Display Logic */}
-                  <div className={`aspect-square w-full flex items-center justify-center relative overflow-hidden`}>
+                  <div className={`aspect-square w-full flex items-center justify-center relative overflow-hidden p-4 md:p-8`}>
                     {art.image ? (
                       <img 
                         src={art.image} 
                         alt={art.title} 
                         referrerPolicy="no-referrer"
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 p-4 md:p-8"
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                       />
                     ) : (
                       <>
@@ -443,13 +443,13 @@ const Portfolio = () => {
             </button>
             
             {/* Image Container */}
-            <div className="w-full md:w-2/3 h-48 sm:h-64 md:h-auto flex items-center justify-center relative overflow-hidden flex-shrink-0">
+            <div className="w-full md:w-2/3 h-60 sm:h-64 md:h-auto flex items-center justify-center relative overflow-hidden flex-shrink-0 p-2 md:p-12">
                {selectedArt.image ? (
                 <img 
                   src={selectedArt.image} 
                   alt={selectedArt.title} 
                   referrerPolicy="no-referrer"
-                  className="w-full h-full object-contain shadow-lg p-4 md:p-12"
+                  className="w-full h-full object-contain shadow-lg"
                 />
               ) : (
                 <span className="text-stone-400 font-serif flex flex-col items-center">
