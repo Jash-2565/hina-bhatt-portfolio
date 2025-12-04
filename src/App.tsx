@@ -430,18 +430,18 @@ const Portfolio = () => {
           <div className="bg-white w-full max-w-6xl max-h-[90vh] overflow-hidden rounded-sm shadow-2xl relative flex flex-col md:flex-row animate-scale-up">
             <button 
               onClick={() => setSelectedArt(null)}
-              className="absolute top-4 right-4 md:left-4 md:right-auto z-10 p-2 bg-white/80 hover:bg-white text-gray-900 rounded-full transition-colors shadow-sm"
+              className="absolute top-4 right-4 z-20 p-2 bg-white/80 hover:bg-white text-gray-900 rounded-full transition-colors shadow-sm"
             >
               <X className="w-5 h-5" />
             </button>
             
             {/* Image Container */}
-            <div className="w-full md:w-2/3 bg-stone-100 flex items-center justify-center p-8 md:p-12 relative overflow-hidden">
+            <div className="w-full md:w-2/3 h-[50vh] md:h-auto bg-stone-100 flex items-center justify-center p-8 md:p-12 relative overflow-hidden">
                {selectedArt.image ? (
                 <img 
                   src={selectedArt.image} 
                   alt={selectedArt.title} 
-                  className="max-w-full max-h-[50vh] md:max-h-[80vh] object-contain shadow-lg"
+                  className="w-full h-full object-contain shadow-lg"
                 />
               ) : (
                 <span className="text-stone-400 font-serif flex flex-col items-center">
@@ -452,12 +452,12 @@ const Portfolio = () => {
             </div>
             
             {/* Details Container */}
-            <div className="w-full md:w-1/3 bg-white p-8 overflow-y-auto flex flex-col justify-center border-l border-stone-100">
-              <div className="mb-auto hidden md:block"></div> {/* Spacer to center vertically if needed */}
+            <div className="w-full md:w-1/3 bg-white p-6 md:p-8 overflow-y-auto flex flex-col justify-center border-l border-stone-100 h-auto md:h-full">
+              <div className="mb-auto hidden md:block"></div>
               
               <div>
                 <h3 className="text-3xl md:text-4xl font-serif text-gray-900 mb-4">{selectedArt.title}</h3>
-                <div className="h-1 w-12 bg-gray-900 mb-8"></div>
+                <div className="h-1 w-12 bg-gray-900 mb-6 md:mb-8"></div>
                 
                 <div className="space-y-4 text-sm tracking-wide">
                   <div>
@@ -476,7 +476,7 @@ const Portfolio = () => {
                   )}
                 </div>
 
-                <div className="mt-12 pt-8 border-t border-stone-100">
+                <div className="mt-8 md:mt-12 pt-8 border-t border-stone-100">
                   <p className="text-stone-400 uppercase text-xs mb-1">Price</p>
                   <p className="text-3xl font-serif text-gray-900">{selectedArt.price}</p>
                 </div>
