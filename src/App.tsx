@@ -258,7 +258,7 @@ const Portfolio = () => {
                   className="group cursor-pointer bg-white rounded-sm shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 overflow-hidden"
                 >
                   {/* Image Display Logic */}
-                  <div className={`aspect-square w-full ${art.color} flex items-center justify-center relative overflow-hidden`}>
+                  <div className={`aspect-square w-full bg-stone-100 flex items-center justify-center relative overflow-hidden`}>
                     {art.image ? (
                       <img 
                         src={art.image} 
@@ -435,7 +435,7 @@ const Portfolio = () => {
               <X className="w-6 h-6 text-gray-800" />
             </button>
             
-            <div className={`aspect-video w-full ${selectedArt.color} flex items-center justify-center bg-stone-100`}>
+            <div className={`aspect-video w-full bg-stone-100 flex items-center justify-center bg-stone-100`}>
               {selectedArt.image ? (
                 <img 
                   src={selectedArt.image} 
