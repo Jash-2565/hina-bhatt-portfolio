@@ -4,6 +4,7 @@ import { Phone, Mail, MapPin, Award, Layers, Image, X, Share2, Menu, Download, A
 
 const Portfolio = () => {
   const [activeTab, setActiveTab] = useState('home');
+  const [activeGalleryTab, setActiveGalleryTab] = useState('ruturaj'); // New state for gallery sub-tabs
   const [selectedArt, setSelectedArt] = useState<any>(null);
   const [showQR, setShowQR] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -38,109 +39,132 @@ const Portfolio = () => {
     ]
   };
 
-  // 1. UPDATE THIS SECTION WITH YOUR IMAGE LINKS
-  const artworks = [
-    { 
-      id: 1, 
-      title: "Ruturaj-1", 
-      size: "24 × 24 inches", 
-      medium: "Oil on Canvas", 
-      price: "$1,000", 
-      color: "bg-amber-100",
-      image: "https://i.postimg.cc/v8fYz9RZ/9103CEB7-507C-4DE0-8DC3-332BFE96CE70-1-102-o.jpg" 
-    },
-    { 
-      id: 2, 
-      title: "Ruturaj-7", 
-      size: "36 × 36 inches", 
-      medium: "Oil on Canvas", 
-      price: "$2,250", 
-      color: "bg-orange-100",
-      image: "https://i.postimg.cc/J0Y5thNW/F04A3B1D-B158-4256-ABD8-427EFE983C0C-1-102-o.jpg"
-    },
-    { 
-      id: 3, 
-      title: "Ruturaj-15", 
-      size: "24 × 24 inches", 
-      medium: "Oil on Canvas", 
-      price: "$1,000", 
-      color: "bg-yellow-100", 
-      image: "https://i.postimg.cc/Df96XSLv/35D9FB1B-ED18-4A73-A34A-378C22D9E62D-1-102-o.jpg" 
-    },
-    { 
-      id: 4, 
-      title: "Ruturaj-23", 
-      size: "60 × 36 inches", 
-      medium: "Oil on Canvas", 
-      price: "$3,750", 
-      color: "bg-rose-100", 
-      image: "https://i.postimg.cc/P538179w/FD571F0D-5DE6-44B2-870D-97971731E75A-1-102-o.jpg" 
-    },
-    { 
-      id: 5, 
-      title: "Ruturaj-39", 
-      size: "60 × 36 inches", 
-      medium: "Oil on Canvas", 
-      price: "$3,750", 
-      color: "bg-red-50", 
-      image: "https://i.postimg.cc/dV1hQB3T/33137944-AAD5-4530-91D3-75170872CCE2-4-5005-c.jpg" 
-    },
-    { 
-      id: 6, 
-      title: "Ruturaj-43", 
-      size: "36 × 36 inches", 
-      medium: "Oil on Canvas", 
-      price: "$2,250", 
-      color: "bg-emerald-50", 
-      image: "https://i.postimg.cc/QdHMZdYL/5A38C771-458A-4A15-AD72-94BE02FBC99F-1-102-o.jpg" 
-    },
-    { 
-      id: 7, 
-      title: "Ruturaj-48", 
-      size: "36 × 36 inches", 
-      medium: "Oil on Canvas", 
-      price: "$2,250", 
-      color: "bg-teal-50", 
-      image: "https://i.postimg.cc/TwqdJL1t/6187CAF2-89F4-4B6F-A3AC-2CD338AEAC9C-1-102-o.jpg" 
-    },
-    { 
-      id: 8, 
-      title: "Ruturaj-53", 
-      size: "30 × 30 inches", 
-      medium: "Oil on Canvas", 
-      price: "$1,563", 
-      color: "bg-blue-50", 
-      image: "https://i.postimg.cc/25nrCb4J/702E2988-D099-4287-B8C3-0A0FA85DAA2F-1-102-o.jpg" 
-    },
-    { 
-      id: 9, 
-      title: "Ruturaj-54", 
-      size: "30 × 30 inches", 
-      medium: "Oil on Canvas", 
-      price: "$1,563", 
-      color: "bg-indigo-50", 
-      image: "https://i.postimg.cc/CMrGGz8B/7F9A83C4-D794-4A1B-A540-234ABE244A1A-1-102-o.jpg" 
-    },
-    { 
-      id: 10, 
-      title: "Ruturaj-56", 
-      size: "30 × 30 inches", 
-      medium: "Oil on Canvas", 
-      price: "$1,563", 
-      color: "bg-violet-50", 
-      image: "https://i.postimg.cc/d1L8pFPK/1D297077-5ABE-497D-8C41-3A66CA85C28E-1-102-o.jpg" 
-    },
-    { 
-      id: 11, 
-      title: "Ruturaj-61", 
-      size: "24 × 48 inches (Diptych)", 
-      medium: "Oil on Canvas", 
-      price: "$4,000", 
-      extra: "Total: 16 sq. ft", 
-      color: "bg-purple-100", 
-      image: "https://i.postimg.cc/T3d5BxnX/EFC580D6-9826-4216-9297-EE776C0B08D0-1-102-o.jpg" 
-    },
-  ];
+  // ARTWORK COLLECTIONS
+  const collections = {
+    ruturaj: [
+        { 
+        id: 1, 
+        title: "Ruturaj-1", 
+        size: "24 × 24 inches", 
+        medium: "Oil on Canvas", 
+        price: "$1,000", 
+        color: "bg-amber-100",
+        image: "https://i.postimg.cc/v8fYz9RZ/9103CEB7-507C-4DE0-8DC3-332BFE96CE70-1-102-o.jpg" 
+        },
+        { 
+        id: 2, 
+        title: "Ruturaj-7", 
+        size: "36 × 36 inches", 
+        medium: "Oil on Canvas", 
+        price: "$2,250", 
+        color: "bg-orange-100",
+        image: "https://i.postimg.cc/J0Y5thNW/F04A3B1D-B158-4256-ABD8-427EFE983C0C-1-102-o.jpg"
+        },
+        { 
+        id: 3, 
+        title: "Ruturaj-15", 
+        size: "24 × 24 inches", 
+        medium: "Oil on Canvas", 
+        price: "$1,000", 
+        color: "bg-yellow-100", 
+        image: "https://i.postimg.cc/Df96XSLv/35D9FB1B-ED18-4A73-A34A-378C22D9E62D-1-102-o.jpg" 
+        },
+        { 
+        id: 4, 
+        title: "Ruturaj-23", 
+        size: "60 × 36 inches", 
+        medium: "Oil on Canvas", 
+        price: "$3,750", 
+        color: "bg-rose-100", 
+        image: "https://i.postimg.cc/P538179w/FD571F0D-5DE6-44B2-870D-97971731E75A-1-102-o.jpg" 
+        },
+        { 
+        id: 5, 
+        title: "Ruturaj-39", 
+        size: "60 × 36 inches", 
+        medium: "Oil on Canvas", 
+        price: "$3,750", 
+        color: "bg-red-50", 
+        image: "https://i.postimg.cc/dV1hQB3T/33137944-AAD5-4530-91D3-75170872CCE2-4-5005-c.jpg" 
+        },
+        { 
+        id: 6, 
+        title: "Ruturaj-43", 
+        size: "36 × 36 inches", 
+        medium: "Oil on Canvas", 
+        price: "$2,250", 
+        color: "bg-emerald-50", 
+        image: "https://i.postimg.cc/QdHMZdYL/5A38C771-458A-4A15-AD72-94BE02FBC99F-1-102-o.jpg" 
+        },
+        { 
+        id: 7, 
+        title: "Ruturaj-48", 
+        size: "36 × 36 inches", 
+        medium: "Oil on Canvas", 
+        price: "$2,250", 
+        color: "bg-teal-50", 
+        image: "https://i.postimg.cc/TwqdJL1t/6187CAF2-89F4-4B6F-A3AC-2CD338AEAC9C-1-102-o.jpg" 
+        },
+        { 
+        id: 8, 
+        title: "Ruturaj-53", 
+        size: "30 × 30 inches", 
+        medium: "Oil on Canvas", 
+        price: "$1,563", 
+        color: "bg-blue-50", 
+        image: "https://i.postimg.cc/25nrCb4J/702E2988-D099-4287-B8C3-0A0FA85DAA2F-1-102-o.jpg" 
+        },
+        { 
+        id: 9, 
+        title: "Ruturaj-54", 
+        size: "30 × 30 inches", 
+        medium: "Oil on Canvas", 
+        price: "$1,563", 
+        color: "bg-indigo-50", 
+        image: "https://i.postimg.cc/CMrGGz8B/7F9A83C4-D794-4A1B-A540-234ABE244A1A-1-102-o.jpg" 
+        },
+        { 
+        id: 10, 
+        title: "Ruturaj-56", 
+        size: "30 × 30 inches", 
+        medium: "Oil on Canvas", 
+        price: "$1,563", 
+        color: "bg-violet-50", 
+        image: "https://i.postimg.cc/d1L8pFPK/1D297077-5ABE-497D-8C41-3A66CA85C28E-1-102-o.jpg" 
+        },
+        { 
+        id: 11, 
+        title: "Ruturaj-61", 
+        size: "24 × 48 inches (Diptych)", 
+        medium: "Oil on Canvas", 
+        price: "$4,000", 
+        extra: "Total: 16 sq. ft", 
+        color: "bg-purple-100", 
+        image: "https://i.postimg.cc/T3d5BxnX/EFC580D6-9826-4216-9297-EE776C0B08D0-1-102-o.jpg" 
+        },
+    ],
+    // New Collection Placeholder
+    newWork: [
+        { 
+        id: 101, 
+        title: "New Series - 1", 
+        size: "24 × 24 inches", 
+        medium: "Oil on Canvas", 
+        price: "$1,200", 
+        color: "bg-stone-200", 
+        image: "" // Add image link here
+        },
+        { 
+        id: 102, 
+        title: "New Series - 2", 
+        size: "30 × 30 inches", 
+        medium: "Acrylic on Canvas", 
+        price: "$1,800", 
+        color: "bg-stone-200", 
+        image: "" // Add image link here
+        },
+    ]
+  };
 
   // QR Code URL
   const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(typeof window !== 'undefined' ? window.location.href : '')}`;
@@ -243,15 +267,33 @@ const Portfolio = () => {
         {/* VIEW: GALLERY */}
         {activeTab === 'gallery' && (
           <div className="animate-fade-in">
-            <div className="mb-12 text-center max-w-2xl mx-auto">
-              <h2 className="text-3xl font-serif text-gray-900 mb-4">The Ruturaj Collection</h2>
+            <div className="mb-8 text-center max-w-2xl mx-auto">
+              {/* Collection Tabs */}
+              <div className="flex justify-center space-x-8 mb-8 border-b border-stone-200 pb-2">
+                <button 
+                  onClick={() => setActiveGalleryTab('ruturaj')}
+                  className={`pb-2 text-lg font-serif tracking-wide transition-colors ${activeGalleryTab === 'ruturaj' ? 'border-b-2 border-gray-900 text-gray-900' : 'text-stone-400 hover:text-gray-600'}`}
+                >
+                  Ruturaj
+                </button>
+                <button 
+                  onClick={() => setActiveGalleryTab('newWork')}
+                  className={`pb-2 text-lg font-serif tracking-wide transition-colors ${activeGalleryTab === 'newWork' ? 'border-b-2 border-gray-900 text-gray-900' : 'text-stone-400 hover:text-gray-600'}`}
+                >
+                  Recent Works
+                </button>
+              </div>
+
+              <h2 className="text-3xl font-serif text-gray-900 mb-4">
+                {activeGalleryTab === 'ruturaj' ? 'The Ruturaj Collection' : 'New Collection'}
+              </h2>
               <p className="text-gray-600 italic leading-relaxed font-serif">
-                "{artist.ruturajStatement}"
+                "{activeGalleryTab === 'ruturaj' ? artist.ruturajStatement : 'A selection of recent works exploring new themes and textures.'}"
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-              {artworks.map((art: any) => (
+            <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
+              {collections[activeGalleryTab].map((art: any) => (
                 <div 
                   key={art.id} 
                   onClick={() => setSelectedArt(art)}
@@ -277,10 +319,10 @@ const Portfolio = () => {
                     )}
                   </div>
                   
-                  <div className="p-6 text-center">
-                    <h3 className="text-xl font-serif text-gray-900 mb-1">{art.title}</h3>
-                    <p className="text-stone-500 text-sm uppercase tracking-wide mb-3">{art.size}</p>
-                    <p className="text-gray-900 font-semibold">{art.price}</p>
+                  <div className="p-3 md:p-6 text-center">
+                    <h3 className="text-sm md:text-xl font-serif text-gray-900 mb-1 truncate">{art.title}</h3>
+                    <p className="text-stone-500 text-[10px] md:text-sm uppercase tracking-wide mb-2 md:mb-3 truncate">{art.size}</p>
+                    <p className="text-gray-900 font-semibold text-sm md:text-base">{art.price}</p>
                   </div>
                 </div>
               ))}
