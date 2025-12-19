@@ -47,7 +47,7 @@ const Portfolio = () => {
         title: "Ruturaj-1", 
         size: "24 × 24 inches", 
         medium: "Oil on Canvas", 
-        price: "$1,000", 
+        price: "Price on Request", 
         color: "bg-amber-100",
         image: "https://i.postimg.cc/v8fYz9RZ/9103CEB7-507C-4DE0-8DC3-332BFE96CE70-1-102-o.jpg" 
         },
@@ -56,7 +56,7 @@ const Portfolio = () => {
         title: "Ruturaj-7", 
         size: "36 × 36 inches", 
         medium: "Oil on Canvas", 
-        price: "$2,250", 
+        price: "Price on Request", 
         color: "bg-orange-100",
         image: "https://i.postimg.cc/J0Y5thNW/F04A3B1D-B158-4256-ABD8-427EFE983C0C-1-102-o.jpg"
         },
@@ -65,7 +65,7 @@ const Portfolio = () => {
         title: "Ruturaj-15", 
         size: "24 × 24 inches", 
         medium: "Oil on Canvas", 
-        price: "$1,000", 
+        price: "Price on Request", 
         color: "bg-yellow-100", 
         image: "https://i.postimg.cc/Df96XSLv/35D9FB1B-ED18-4A73-A34A-378C22D9E62D-1-102-o.jpg" 
         },
@@ -74,7 +74,7 @@ const Portfolio = () => {
         title: "Ruturaj-23", 
         size: "60 × 36 inches", 
         medium: "Oil on Canvas", 
-        price: "$3,750", 
+        price: "Price on Request", 
         color: "bg-rose-100", 
         image: "https://i.postimg.cc/P538179w/FD571F0D-5DE6-44B2-870D-97971731E75A-1-102-o.jpg" 
         },
@@ -83,7 +83,7 @@ const Portfolio = () => {
         title: "Ruturaj-39", 
         size: "60 × 36 inches", 
         medium: "Oil on Canvas", 
-        price: "$3,750", 
+        price: "Price on Request", 
         color: "bg-red-50", 
         image: "https://i.postimg.cc/dV1hQB3T/33137944-AAD5-4530-91D3-75170872CCE2-4-5005-c.jpg" 
         },
@@ -92,7 +92,7 @@ const Portfolio = () => {
         title: "Ruturaj-43", 
         size: "36 × 36 inches", 
         medium: "Oil on Canvas", 
-        price: "$2,250", 
+        price: "Price on Request", 
         color: "bg-emerald-50", 
         image: "https://i.postimg.cc/QdHMZdYL/5A38C771-458A-4A15-AD72-94BE02FBC99F-1-102-o.jpg" 
         },
@@ -101,7 +101,7 @@ const Portfolio = () => {
         title: "Ruturaj-48", 
         size: "36 × 36 inches", 
         medium: "Oil on Canvas", 
-        price: "$2,250", 
+        price: "Price on Request", 
         color: "bg-teal-50", 
         image: "https://i.postimg.cc/TwqdJL1t/6187CAF2-89F4-4B6F-A3AC-2CD338AEAC9C-1-102-o.jpg" 
         },
@@ -110,7 +110,7 @@ const Portfolio = () => {
         title: "Ruturaj-53", 
         size: "30 × 30 inches", 
         medium: "Oil on Canvas", 
-        price: "$1,563", 
+        price: "Price on Request", 
         color: "bg-blue-50", 
         image: "https://i.postimg.cc/25nrCb4J/702E2988-D099-4287-B8C3-0A0FA85DAA2F-1-102-o.jpg" 
         },
@@ -119,7 +119,7 @@ const Portfolio = () => {
         title: "Ruturaj-54", 
         size: "30 × 30 inches", 
         medium: "Oil on Canvas", 
-        price: "$1,563", 
+        price: "Price on Request", 
         color: "bg-indigo-50", 
         image: "https://i.postimg.cc/CMrGGz8B/7F9A83C4-D794-4A1B-A540-234ABE244A1A-1-102-o.jpg" 
         },
@@ -128,7 +128,7 @@ const Portfolio = () => {
         title: "Ruturaj-56", 
         size: "30 × 30 inches", 
         medium: "Oil on Canvas", 
-        price: "$1,563", 
+        price: "Price on Request", 
         color: "bg-violet-50", 
         image: "https://i.postimg.cc/d1L8pFPK/1D297077-5ABE-497D-8C41-3A66CA85C28E-1-102-o.jpg" 
         },
@@ -137,32 +137,59 @@ const Portfolio = () => {
         title: "Ruturaj-61", 
         size: "24 × 48 inches (Diptych)", 
         medium: "Oil on Canvas", 
-        price: "$4,000", 
+        price: "Price on Request", 
         extra: "Total: 16 sq. ft", 
         color: "bg-purple-100", 
         image: "https://i.postimg.cc/T3d5BxnX/EFC580D6-9826-4216-9297-EE776C0B08D0-1-102-o.jpg" 
         },
     ],
-    // New Collection Placeholder
-    newWork: [
+    // New Collection: Roots and Bonds
+    rootsAndBonds: [
         { 
-        id: 101, 
-        title: "New Series - 1", 
-        size: "24 × 24 inches", 
-        medium: "Oil on Canvas", 
-        price: "$1,200", 
+        id: 201, 
+        title: "Roots and Bonds - 1", 
+        size: "24 x 23 Inches", 
+        medium: "Mix Media on Canvas", 
+        price: "Price on Request", 
         color: "bg-stone-200", 
-        image: "" // Add image link here
+        image: "https://imagizer.imageshack.com/img924/3189/wiJjEH.jpg" 
         },
         { 
-        id: 102, 
-        title: "New Series - 2", 
-        size: "30 × 30 inches", 
-        medium: "Acrylic on Canvas", 
-        price: "$1,800", 
+        id: 202, 
+        title: "Roots and Bonds - 2", 
+        size: "18 x 18 Inches", 
+        medium: "Mix Media on Canvas", 
+        price: "Price on Request", 
         color: "bg-stone-200", 
-        image: "" // Add image link here
+        image: "https://imagizer.imageshack.com/img924/9132/eyRFqf.jpg" 
         },
+        { 
+        id: 203, 
+        title: "Roots and Bonds - 3", 
+        size: "18 x 18 Inches", 
+        medium: "Mix Media on Canvas", 
+        price: "Price on Request", 
+        color: "bg-stone-200", 
+        image: "https://imagizer.imageshack.com/img923/6051/sHV9ac.jpg" 
+        },
+        { 
+        id: 204, 
+        title: "Roots and Bonds - 4", 
+        size: "18 x 18 Inches", 
+        medium: "Mix Media on Canvas", 
+        price: "Price on Request", 
+        color: "bg-stone-200", 
+        image: "https://imagizer.imageshack.com/img922/8008/Tam4ps.jpg" 
+        },
+        { 
+        id: 205, 
+        title: "Roots and Bonds - 5", 
+        size: "12 x 24 Inches", 
+        medium: "Mix Media on Canvas", 
+        price: "Price on Request", 
+        color: "bg-stone-200", 
+        image: "https://imagizer.imageshack.com/img924/889/QAXXVY.jpg" 
+        }
     ]
   };
 
@@ -277,18 +304,18 @@ const Portfolio = () => {
                   Ruturaj
                 </button>
                 <button 
-                  onClick={() => setActiveGalleryTab('newWork')}
-                  className={`pb-2 text-lg font-serif tracking-wide transition-colors ${activeGalleryTab === 'newWork' ? 'border-b-2 border-gray-900 text-gray-900' : 'text-stone-400 hover:text-gray-600'}`}
+                  onClick={() => setActiveGalleryTab('rootsAndBonds')}
+                  className={`pb-2 text-lg font-serif tracking-wide transition-colors ${activeGalleryTab === 'rootsAndBonds' ? 'border-b-2 border-gray-900 text-gray-900' : 'text-stone-400 hover:text-gray-600'}`}
                 >
-                  Recent Works
+                  Roots and Bonds
                 </button>
               </div>
 
               <h2 className="text-3xl font-serif text-gray-900 mb-4">
-                {activeGalleryTab === 'ruturaj' ? 'The Ruturaj Collection' : 'New Collection'}
+                {activeGalleryTab === 'ruturaj' ? 'The Ruturaj Collection' : 'Roots and Bonds'}
               </h2>
               <p className="text-gray-600 italic leading-relaxed font-serif">
-                "{activeGalleryTab === 'ruturaj' ? artist.ruturajStatement : 'A selection of recent works exploring new themes and textures.'}"
+                "{activeGalleryTab === 'ruturaj' ? artist.ruturajStatement : 'Exploring our intimate connection with the universe—the bonds between man, nature, and the divine.'}"
               </p>
             </div>
 
@@ -306,7 +333,7 @@ const Portfolio = () => {
                         src={art.image} 
                         alt={art.title} 
                         referrerPolicy="no-referrer"
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
                       />
                     ) : (
                       <>
@@ -321,8 +348,7 @@ const Portfolio = () => {
                   
                   <div className="p-3 md:p-6 text-center">
                     <h3 className="text-sm md:text-xl font-serif text-gray-900 mb-1 truncate">{art.title}</h3>
-                    <p className="text-stone-500 text-[10px] md:text-sm uppercase tracking-wide mb-2 md:mb-3 truncate">{art.size}</p>
-                    <p className="text-gray-900 font-semibold text-sm md:text-base">{art.price}</p>
+                    <p className="text-stone-500 text-[10px] md:text-sm uppercase tracking-wide truncate">{art.size}</p>
                   </div>
                 </div>
               ))}
@@ -528,7 +554,7 @@ const Portfolio = () => {
 
                 <div className="mt-4 md:mt-12 pt-3 md:pt-8 border-t border-stone-100 flex md:block justify-between items-end">
                   <p className="text-stone-400 uppercase text-[10px] md:text-xs mb-0 md:mb-1">Price</p>
-                  <p className="text-2xl md:text-3xl font-serif text-gray-900">{selectedArt.price}</p>
+                  <p className="text-xl md:text-2xl font-serif text-gray-900">{selectedArt.price}</p>
                 </div>
               </div>
 
