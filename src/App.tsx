@@ -1,6 +1,6 @@
 // @ts-nocheck
 import React, { useState, useEffect } from 'react';
-import { Phone, Mail, MapPin, Award, Layers, Image, X, Share2, Menu, Download, ArrowRight } from 'lucide-react';
+import { Phone, Mail, MapPin, Award, Layers, Image, X, Share2, Menu, Download, ArrowRight, Loader } from 'lucide-react';
 
 const Portfolio = () => {
   const [activeTab, setActiveTab] = useState('home');
@@ -8,6 +8,7 @@ const Portfolio = () => {
   const [selectedArt, setSelectedArt] = useState<any>(null);
   const [showQR, setShowQR] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [imageLoadingStates, setImageLoadingStates] = useState<Record<number, boolean>>({});
 
   // Artist Data
   const artist = {
@@ -280,16 +281,20 @@ const Portfolio = () => {
     </button>
   );
 
+  const handleImageLoad = (id: number) => {
+    setImageLoadingStates(prev => ({ ...prev, [id]: true }));
+  };
+
   return (
     <div className="min-h-screen bg-stone-50 text-gray-800 font-sans selection:bg-stone-200">
       
       {/* Navigation */}
-      <nav className="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-stone-200">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <nav className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-stone-200 shadow-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <button 
               onClick={() => setActiveTab('home')}
-              className="text-xl font-serif tracking-wider font-bold text-gray-900 hover:opacity-80 transition-opacity"
+              className="text-xl font-serif tracking-wider text-gray-900 hover:opacity-80 transition-opacity"
             >
               HINA BHATT
             </button>
@@ -326,9 +331,9 @@ const Portfolio = () => {
         )}
       </nav>
 
-      <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
 
-        {/* VIEW: HOME (New Homepage) */}
+        {/* VIEW: HOME */}
         {activeTab === 'home' && (
           <div className="animate-fade-in flex flex-col items-center justify-center min-h-[60vh] md:min-h-[70vh] text-center">
              <div className="max-w-3xl space-y-8">
@@ -363,10 +368,10 @@ const Portfolio = () => {
           </div>
         )}
         
-        {/* VIEW: GALLERY */}
+        {/* VIEW: GALLERY - REDESIGNED */}
         {activeTab === 'gallery' && (
           <div className="animate-fade-in">
-            <div className="mb-8 text-center max-w-2xl mx-auto">
+            <div className="mb-10 text-center max-w-3xl mx-auto">
               {/* Collection Tabs */}
               <div className="flex justify-center space-x-8 mb-8 border-b border-stone-200 pb-2">
                 <button 
@@ -383,7 +388,7 @@ const Portfolio = () => {
                 </button>
               </div>
 
-              <h2 className="text-3xl font-serif text-gray-900 mb-4">
+              <h2 className="text-3xl md:text-4xl font-serif text-gray-900 mb-4">
                 {activeGalleryTab === 'ruturaj' ? 'The Ruturaj Collection' : 'Roots and Bonds'}
               </h2>
               <p className="text-gray-600 italic leading-relaxed font-serif">
@@ -391,30 +396,39 @@ const Portfolio = () => {
               </p>
             </div>
 
+            {/* REDESIGNED GALLERY GRID - No aspect ratio constraint */}
             <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
               {collections[activeGalleryTab].map((art: any) => (
                 <div 
                   key={art.id} 
                   onClick={() => setSelectedArt(art)}
-                  className="group cursor-pointer bg-white rounded-sm transition-all duration-300 transform hover:-translate-y-1 overflow-hidden"
+                  className="group cursor-pointer bg-white rounded-sm shadow-sm hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 overflow-hidden flex flex-col"
                 >
-                  {/* Image Display Logic */}
-                  <div className={`aspect-square w-full flex items-center justify-center relative overflow-hidden`}>
+                  {/* FIXED HEIGHT IMAGE CONTAINER - Same size for all cards */}
+                  <div className="w-full h-[250px] md:h-[350px] bg-stone-50 flex items-center justify-center relative overflow-hidden">
                     {art.image ? (
-                      <img 
-                        src={art.image} 
-                        alt={art.title} 
-                        referrerPolicy="no-referrer"
-                        className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
-                      />
+                      <div className="relative w-full h-full">
+                        {!imageLoadingStates[art.id] && (
+                          <div className="absolute inset-0 flex items-center justify-center bg-stone-100">
+                            <Loader className="w-8 h-8 text-stone-400 animate-spin" />
+                          </div>
+                        )}
+                        <img 
+                          src={art.image} 
+                          alt={art.title} 
+                          referrerPolicy="no-referrer"
+                          onLoad={() => handleImageLoad(art.id)}
+                          className={`w-full h-full object-contain p-4 transition-all duration-700 ${
+                            imageLoadingStates[art.id] ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+                          } group-hover:scale-105`}
+                          style={{ objectPosition: 'center' }}
+                        />
+                      </div>
                     ) : (
-                      <>
-                        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300" />
-                        <span className="text-stone-400 font-serif text-lg flex flex-col items-center">
-                           <Image className="mb-2 w-8 h-8 opacity-40" />
-                           <span className="opacity-60 text-sm tracking-widest">ARTWORK IMAGE</span>
-                        </span>
-                      </>
+                      <div className="flex flex-col items-center justify-center p-8 text-stone-400">
+                        <Image className="mb-2 w-12 h-12 opacity-40" />
+                        <span className="opacity-60 text-sm tracking-widest">ARTWORK IMAGE</span>
+                      </div>
                     )}
                   </div>
                   
@@ -430,16 +444,16 @@ const Portfolio = () => {
 
         {/* VIEW: ABOUT / STATEMENT */}
         {activeTab === 'about' && (
-          <div className="max-w-3xl mx-auto animate-fade-in">
-            <div className="bg-white p-8 md:p-12 shadow-sm border border-stone-100 rounded-sm">
-              <h1 className="text-4xl font-serif text-center mb-8 text-gray-900">Artist Statement</h1>
-              <div className="prose prose-stone mx-auto">
-                <p className="text-lg text-gray-700 leading-8 mb-8 first-letter:text-5xl first-letter:font-serif first-letter:text-gray-900 first-letter:mr-2 first-letter:float-left">
+          <div className="max-w-4xl mx-auto animate-fade-in">
+            <div className="bg-white p-8 md:p-16 shadow-sm border border-stone-100 rounded-sm">
+              <h1 className="text-4xl md:text-5xl font-serif text-center mb-12 text-gray-900">Artist Statement</h1>
+              <div className="prose prose-lg prose-stone mx-auto">
+                <p className="text-lg md:text-xl text-gray-700 leading-9 mb-10 first-letter:text-6xl first-letter:font-serif first-letter:text-gray-900 first-letter:mr-3 first-letter:float-left first-letter:leading-[0.8]">
                   {artist.statement}
                 </p>
-                <div className="w-24 h-1 bg-stone-300 mx-auto my-8"></div>
-                <h3 className="text-2xl font-serif text-center mb-4">On Ruturaj</h3>
-                <p className="text-lg text-gray-700 leading-8 italic text-center">
+                <div className="w-24 h-1 bg-stone-300 mx-auto my-12"></div>
+                <h3 className="text-2xl md:text-3xl font-serif text-center mb-6">On Ruturaj</h3>
+                <p className="text-lg md:text-xl text-gray-700 leading-9 italic text-center">
                   "{artist.ruturajStatement}"
                 </p>
               </div>
@@ -452,55 +466,61 @@ const Portfolio = () => {
           <div className="max-w-4xl mx-auto animate-fade-in space-y-8">
             
             {/* Education */}
-            <div className="bg-white p-6 md:p-8 shadow-sm rounded-sm">
-              <div className="flex items-center mb-6">
+            <div className="bg-white p-6 md:p-10 shadow-sm rounded-sm border border-stone-100">
+              <div className="flex items-center mb-8">
                 <Layers className="w-6 h-6 text-stone-400 mr-3" />
-                <h2 className="text-2xl font-serif">Education</h2>
+                <h2 className="text-2xl md:text-3xl font-serif">Education</h2>
               </div>
-              <div className="space-y-6 border-l-2 border-stone-100 pl-6">
+              <div className="space-y-6 border-l-2 border-stone-200 pl-6">
                 {resume.education.map((edu, idx) => (
                   <div key={idx} className="relative">
-                    <div className="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-stone-200 border-2 border-white"></div>
-                    <h3 className="font-bold text-gray-900">{edu.title}</h3>
+                    <div className="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-stone-300 border-4 border-white"></div>
+                    <p className="text-xs uppercase tracking-widest text-stone-400 mb-1">{edu.type}</p>
+                    <h3 className="text-lg text-gray-900 mb-1">{edu.title}</h3>
                     <p className="text-stone-600">{edu.inst}</p>
-                    <span className="text-xs uppercase tracking-widest text-stone-400">{edu.type}</span>
                   </div>
                 ))}
               </div>
             </div>
 
             {/* Awards & Exhibitions */}
-            <div className="bg-white p-6 md:p-8 shadow-sm rounded-sm">
-              <div className="flex items-center mb-6">
+            <div className="bg-white p-6 md:p-10 shadow-sm rounded-sm border border-stone-100">
+              <div className="flex items-center mb-8">
                 <Award className="w-6 h-6 text-stone-400 mr-3" />
-                <h2 className="text-2xl font-serif">Achievements & Shows</h2>
+                <h2 className="text-2xl md:text-3xl font-serif">Achievements & Shows</h2>
               </div>
               
-              <div className="space-y-6">
+              <div className="space-y-8">
                 <div>
-                  <h3 className="text-lg font-bold text-gray-900 mb-2">Awards</h3>
-                  <ul className="list-disc list-inside text-stone-600 ml-2">
+                  <h3 className="text-lg mb-4 text-gray-900 border-b border-stone-100 pb-2">Awards</h3>
+                  <ul className="list-disc list-inside text-stone-700 ml-2 space-y-2">
                     {resume.awards.map((a, i) => <li key={i}>{a}</li>)}
                   </ul>
                 </div>
 
                 <div>
-                  <h3 className="text-lg font-bold text-gray-900 mb-2">Exhibitions</h3>
-                  <div className="space-y-3 text-stone-600">
-                    <p><span className="font-semibold text-gray-800">Solo:</span> {resume.soloShows}</p>
-                    <p><span className="font-semibold text-gray-800">Group:</span> {resume.groupShows}</p>
+                  <h3 className="text-lg mb-4 text-gray-900 border-b border-stone-100 pb-2">Exhibitions</h3>
+                  <div className="space-y-4 text-stone-700">
+                    <div className="bg-stone-50 p-4 rounded">
+                      <span className="text-gray-800 block mb-1">Solo Exhibitions</span>
+                      <p>{resume.soloShows}</p>
+                    </div>
+                    <div className="bg-stone-50 p-4 rounded">
+                      <span className="text-gray-800 block mb-1">Group Exhibitions</span>
+                      <p>{resume.groupShows}</p>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Collections */}
-            <div className="bg-white p-6 md:p-8 shadow-sm rounded-sm">
-              <h2 className="text-2xl font-serif mb-6">Select Collectors</h2>
+            <div className="bg-white p-6 md:p-10 shadow-sm rounded-sm border border-stone-100">
+              <h2 className="text-2xl md:text-3xl font-serif mb-8">Select Collectors</h2>
               <div className="grid md:grid-cols-2 gap-4">
                 {resume.collections.map((col, idx) => (
-                  <div key={idx} className="flex items-center bg-stone-50 p-3 rounded-md">
-                    <div className="w-2 h-2 bg-stone-400 rounded-full mr-3"></div>
+                  <div key={idx} className="flex items-center bg-stone-50 p-4 rounded-md hover:bg-stone-100 transition-colors">
+                    <div className="w-2 h-2 bg-stone-400 rounded-full mr-4 flex-shrink-0"></div>
                     <span className="text-stone-700">{col}</span>
                   </div>
                 ))}
@@ -512,39 +532,39 @@ const Portfolio = () => {
         {/* VIEW: CONTACT */}
         {activeTab === 'contact' && (
           <div className="max-w-2xl mx-auto animate-fade-in">
-            <div className="bg-white p-8 md:p-12 shadow-sm text-center rounded-sm">
-              <h2 className="text-3xl font-serif mb-8">Get in Touch</h2>
+            <div className="bg-white p-8 md:p-12 shadow-sm text-center rounded-sm border border-stone-100">
+              <h2 className="text-3xl md:text-4xl font-serif mb-12">Get in Touch</h2>
               
-              <div className="space-y-8">
+              <div className="space-y-10">
                 <div className="flex flex-col items-center">
-                  <div className="bg-stone-100 p-4 rounded-full mb-4">
+                  <div className="bg-stone-100 p-5 rounded-full mb-4 hover:bg-stone-200 transition-colors">
                     <Phone className="w-6 h-6 text-stone-600" />
                   </div>
                   <p className="text-xl font-medium">{artist.phone}</p>
-                  <p className="text-stone-500 text-sm uppercase mt-1">Mobile</p>
+                  <p className="text-stone-500 text-sm uppercase mt-2 tracking-wider">Mobile</p>
                 </div>
 
                 <div className="flex flex-col items-center">
-                  <div className="bg-stone-100 p-4 rounded-full mb-4">
+                  <div className="bg-stone-100 p-5 rounded-full mb-4 hover:bg-stone-200 transition-colors">
                     <Mail className="w-6 h-6 text-stone-600" />
                   </div>
                   <a href={`mailto:${artist.email}`} className="text-xl font-medium hover:underline text-stone-800 break-all">{artist.email}</a>
-                  <p className="text-stone-500 text-sm uppercase mt-1">Email</p>
+                  <p className="text-stone-500 text-sm uppercase mt-2 tracking-wider">Email</p>
                 </div>
 
                 <div className="flex flex-col items-center">
-                  <div className="bg-stone-100 p-4 rounded-full mb-4">
+                  <div className="bg-stone-100 p-5 rounded-full mb-4 hover:bg-stone-200 transition-colors">
                     <MapPin className="w-6 h-6 text-stone-600" />
                   </div>
-                  <p className="text-lg text-stone-700 max-w-xs mx-auto leading-relaxed">{artist.address}</p>
-                  <p className="text-stone-500 text-sm uppercase mt-1">Studio Address</p>
+                  <p className="text-lg text-stone-700 max-w-md mx-auto leading-relaxed">{artist.address}</p>
+                  <p className="text-stone-500 text-sm uppercase mt-2 tracking-wider">Studio Address</p>
                 </div>
               </div>
 
               <div className="mt-12 pt-8 border-t border-stone-100">
                 <button 
                   onClick={() => setShowQR(true)}
-                  className="inline-flex items-center px-6 py-3 bg-gray-900 text-white rounded hover:bg-gray-800 transition-colors"
+                  className="inline-flex items-center px-8 py-4 bg-gray-900 text-white rounded hover:bg-gray-800 transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5"
                 >
                   <Share2 className="w-4 h-4 mr-2" />
                   Show QR Code
@@ -557,81 +577,93 @@ const Portfolio = () => {
       </main>
 
       {/* Footer */}
-      <footer className="bg-stone-100 py-8 text-center text-stone-500 text-sm">
+      <footer className="bg-stone-100 py-10 text-center text-stone-500 text-sm border-t border-stone-200">
         <p>&copy; {new Date().getFullYear()} {artist.name}. All Rights Reserved.</p>
-        <div className="mt-4 flex justify-center space-x-6">
-            <button onClick={() => { setActiveTab('contact'); setShowQR(true); }} className="hover:text-stone-800">Share</button>
-            <button onClick={() => setActiveTab('contact')} className="hover:text-stone-800">Contact</button>
+        <div className="mt-6 flex justify-center space-x-8">
+            <button onClick={() => { setActiveTab('contact'); setShowQR(true); }} className="hover:text-stone-800 transition-colors">Share</button>
+            <button onClick={() => setActiveTab('contact')} className="hover:text-stone-800 transition-colors">Contact</button>
         </div>
       </footer>
 
-      {/* MODAL: Artwork Details */}
+      {/* MODAL: Artwork Details - REDESIGNED */}
       {selectedArt && (
         <div 
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-4 bg-black/80 backdrop-blur-sm animate-fade-in"
-          onClick={() => setSelectedArt(null)} // Close when clicking backdrop
+          className="fixed inset-0 z-50 flex items-center justify-center p-0 md:p-4 bg-black/90 backdrop-blur-sm animate-fade-in overflow-auto"
+          onClick={() => setSelectedArt(null)}
         >
           <div 
-            className="bg-white w-full max-w-sm md:max-w-6xl md:max-h-[90vh] overflow-hidden rounded-xl relative flex flex-col md:flex-row animate-scale-up"
-            onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside
+            className="bg-white w-full h-full md:h-auto md:max-w-7xl md:max-h-[95vh] md:rounded-xl relative flex flex-col md:flex-row animate-scale-up overflow-hidden md:shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
           >
             <button 
               onClick={() => setSelectedArt(null)}
-              className="absolute top-2 right-2 md:top-4 md:right-4 z-20 p-1.5 md:p-2 bg-white/80 hover:bg-white text-gray-900 rounded-full transition-colors"
+              className="absolute top-3 right-3 md:top-6 md:right-6 z-20 p-2 md:p-3 bg-white/90 hover:bg-white text-gray-900 rounded-full transition-all shadow-lg hover:shadow-xl"
             >
-              <X className="w-4 h-4 md:w-5 md:h-5" />
+              <X className="w-5 h-5 md:w-6 md:h-6" />
             </button>
             
-            {/* Image Container */}
-            <div className="w-full md:w-2/3 h-60 sm:h-64 md:h-auto flex items-center justify-center relative overflow-hidden flex-shrink-0 p-2 md:p-12">
+            {/* REDESIGNED IMAGE CONTAINER - Full view, no cropping */}
+            <div className="w-full md:w-2/3 flex items-center justify-center bg-white relative overflow-auto flex-shrink-0 p-4 md:p-12">
                {selectedArt.image ? (
                 <img 
                   src={selectedArt.image} 
                   alt={selectedArt.title} 
                   referrerPolicy="no-referrer"
-                  className="w-full h-full object-contain"
+                  className="max-w-full max-h-full object-contain"
+                  style={{ 
+                    width: 'auto', 
+                    height: 'auto',
+                    maxWidth: '100%',
+                    maxHeight: '100%'
+                  }}
                 />
               ) : (
-                <span className="text-stone-400 font-serif flex flex-col items-center">
-                  <Image className="mb-2 w-12 h-12 opacity-40" />
-                  <span className="opacity-60 tracking-widest">ARTWORK PREVIEW</span>
-                </span>
+                <div className="flex flex-col items-center text-stone-400">
+                  <Image className="mb-4 w-16 h-16 opacity-40" />
+                  <span className="opacity-60 tracking-widest text-lg">ARTWORK PREVIEW</span>
+                </div>
               )}
             </div>
             
             {/* Details Container */}
-            <div className="w-full md:w-1/3 bg-white p-5 md:p-8 flex flex-col justify-center md:border-l border-stone-100 flex-grow">
-              <div className="mb-auto hidden md:block"></div>
-              
+            <div className="w-full md:w-1/3 bg-white p-6 md:p-10 flex flex-col justify-center overflow-auto">
               <div>
-                <h3 className="text-2xl md:text-4xl font-serif text-gray-900 mb-2 md:mb-4">{selectedArt.title}</h3>
-                <div className="h-0.5 w-12 bg-gray-900 mb-3 md:mb-8"></div>
+                <h3 className="text-3xl md:text-4xl font-serif text-gray-900 mb-4">{selectedArt.title}</h3>
+                <div className="h-0.5 w-16 bg-gray-900 mb-8"></div>
                 
-                <div className="space-y-2 md:space-y-4 text-sm tracking-wide text-gray-600">
-                  <div className="flex md:block justify-between items-baseline">
-                    <p className="text-stone-400 uppercase text-[10px] md:text-xs mb-0 md:mb-1 mr-2">Dimensions</p>
-                    <p className="font-medium text-gray-900 text-sm md:text-base">{selectedArt.size}</p>
+                <div className="space-y-6 text-base">
+                  <div>
+                    <p className="text-stone-400 uppercase text-xs mb-2 tracking-wider">Dimensions</p>
+                    <p className="text-gray-900 text-lg">{selectedArt.size}</p>
                   </div>
-                  <div className="flex md:block justify-between items-baseline">
-                    <p className="text-stone-400 uppercase text-[10px] md:text-xs mb-0 md:mb-1 mr-2">Medium</p>
-                    <p className="font-medium text-gray-900 text-sm md:text-base">{selectedArt.medium}</p>
+                  <div>
+                    <p className="text-stone-400 uppercase text-xs mb-2 tracking-wider">Medium</p>
+                    <p className="text-gray-900 text-lg">{selectedArt.medium}</p>
                   </div>
                   {selectedArt.extra && (
-                  <div className="flex md:block justify-between items-baseline">
-                    <p className="text-stone-400 uppercase text-[10px] md:text-xs mb-0 md:mb-1 mr-2">Details</p>
-                    <p className="font-medium text-gray-900 text-sm md:text-base">{selectedArt.extra}</p>
+                  <div>
+                    <p className="text-stone-400 uppercase text-xs mb-2 tracking-wider">Details</p>
+                    <p className="text-gray-900 text-lg">{selectedArt.extra}</p>
                   </div>
                   )}
                 </div>
 
-                <div className="mt-4 md:mt-12 pt-3 md:pt-8 border-t border-stone-100 flex md:block justify-between items-end">
-                  <p className="text-stone-400 uppercase text-[10px] md:text-xs mb-0 md:mb-1">Price</p>
+                <div className="mt-10 pt-8 border-t border-stone-200">
+                  <p className="text-stone-400 uppercase text-xs mb-2 tracking-wider">Price</p>
                   <p className="text-xl md:text-2xl font-serif text-gray-900">{selectedArt.price}</p>
                 </div>
-              </div>
 
-              <div className="mt-auto hidden md:block pt-8">
-                 {/* Optional footer content for modal */}
+                <div className="mt-8">
+                  <button 
+                    onClick={() => {
+                      setSelectedArt(null);
+                      setActiveTab('contact');
+                    }}
+                    className="w-full px-6 py-3 bg-gray-900 text-white text-sm tracking-wide rounded hover:bg-gray-800 transition-all shadow-md hover:shadow-lg"
+                  >
+                    Inquire About This Piece
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -642,26 +674,26 @@ const Portfolio = () => {
       {showQR && (
         <div 
           className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fade-in"
-          onClick={() => setShowQR(false)} // Close when clicking backdrop
+          onClick={() => setShowQR(false)}
         >
           <div 
-            className="bg-white p-8 rounded-lg shadow-2xl text-center max-w-sm w-full relative"
-            onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside
+            className="bg-white p-8 md:p-10 rounded-lg shadow-2xl text-center max-w-sm w-full relative"
+            onClick={(e) => e.stopPropagation()}
           >
             <button 
               onClick={() => setShowQR(false)}
-              className="absolute top-2 right-2 p-2 hover:bg-stone-100 rounded-full"
+              className="absolute top-3 right-3 p-2 hover:bg-stone-100 rounded-full transition-colors"
             >
               <X className="w-5 h-5 text-gray-500" />
             </button>
-            <h3 className="text-xl font-serif mb-6">Share Portfolio</h3>
-            <div className="bg-white p-2 border border-stone-200 inline-block mb-4">
+            <h3 className="text-2xl font-serif mb-6">Share Portfolio</h3>
+            <div className="bg-white p-4 border-2 border-stone-200 inline-block mb-6 rounded">
               <img src={qrCodeUrl} alt="QR Code" className="w-48 h-48" />
             </div>
-            <p className="text-sm text-stone-500 mb-6">Scan to view Hina Bhatt's Portfolio on mobile.</p>
+            <p className="text-sm text-stone-600 mb-8">Scan to view Hina Bhatt's Portfolio on mobile.</p>
             <button 
                onClick={() => window.print()}
-               className="flex items-center justify-center w-full px-4 py-2 border border-stone-300 text-stone-600 hover:bg-stone-50 rounded transition-colors"
+               className="flex items-center justify-center w-full px-6 py-3 border-2 border-stone-300 text-stone-700 hover:bg-stone-50 rounded transition-colors"
             >
                <Download className="w-4 h-4 mr-2" />
                Print / Save Info
@@ -686,6 +718,11 @@ const Portfolio = () => {
         .animate-fade-in { animation: fadeIn 0.5s ease-out; }
         .animate-scale-up { animation: scaleUp 0.3s ease-out; }
         .animate-fade-in-down { animation: fadeInDown 0.3s ease-out; }
+        
+        @keyframes spin {
+          to { transform: rotate(360deg); }
+        }
+        .animate-spin { animation: spin 1s linear infinite; }
       `}</style>
     </div>
   );
