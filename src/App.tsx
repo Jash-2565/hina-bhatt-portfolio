@@ -420,7 +420,7 @@ const Portfolio = () => {
                               alt={art.title} 
                               referrerPolicy="no-referrer"
                               onLoad={() => handleImageLoad(art.id)}
-                              className={`w-full h-full object-contain p-6 transition-all duration-700 ${
+                              className={`w-full h-full object-contain p-2 md:p-6 transition-all duration-700 ${
                                 imageLoadingStates[art.id] ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
                               } group-hover:scale-105`}
                               style={{ objectPosition: 'center' }}
