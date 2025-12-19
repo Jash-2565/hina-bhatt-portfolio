@@ -332,248 +332,250 @@ const Portfolio = () => {
       </nav>
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+        <div key={activeTab} className="animate-fade-in-up w-full">
+            {/* VIEW: HOME */}
+            {activeTab === 'home' && (
+              <div className="flex flex-col items-center justify-center min-h-[60vh] md:min-h-[70vh] text-center">
+                 <div className="max-w-3xl space-y-8">
+                    <div className="inline-block p-4 border-t border-b border-stone-300 mb-4">
+                      <span className="text-sm md:text-base uppercase tracking-[0.3em] text-stone-500">Fine Artist</span>
+                    </div>
+                    
+                    <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif text-gray-900 tracking-tight leading-tight">
+                      Hina Bhatt
+                    </h1>
 
-        {/* VIEW: HOME */}
-        {activeTab === 'home' && (
-          <div className="animate-fade-in-up flex flex-col items-center justify-center min-h-[60vh] md:min-h-[70vh] text-center">
-             <div className="max-w-3xl space-y-8">
-                <div className="inline-block p-4 border-t border-b border-stone-300 mb-4">
-                  <span className="text-sm md:text-base uppercase tracking-[0.3em] text-stone-500">Fine Artist</span>
-                </div>
-                
-                <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif text-gray-900 tracking-tight leading-tight">
-                  Hina Bhatt
-                </h1>
+                    <p className="text-lg md:text-2xl text-stone-600 font-serif italic leading-relaxed max-w-2xl mx-auto">
+                      "Exploring the intimate connection between nature, humanity, and the divine."
+                    </p>
 
-                <p className="text-lg md:text-2xl text-stone-600 font-serif italic leading-relaxed max-w-2xl mx-auto">
-                  "Exploring the intimate connection between nature, humanity, and the divine."
-                </p>
+                    <div className="pt-8">
+                      <button 
+                        onClick={() => setActiveTab('gallery')}
+                        className="group inline-flex items-center px-8 py-4 bg-gray-900 text-white text-sm md:text-base tracking-widest uppercase hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1"
+                      >
+                        View The Collection
+                        <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                      </button>
+                    </div>
 
-                <div className="pt-8">
-                  <button 
-                    onClick={() => setActiveTab('gallery')}
-                    className="group inline-flex items-center px-8 py-4 bg-gray-900 text-white text-sm md:text-base tracking-widest uppercase hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1"
-                  >
-                    View The Collection
-                    <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </button>
-                </div>
-
-                <div className="pt-16 grid grid-cols-3 gap-4 opacity-50 max-w-lg mx-auto">
-                   <div className="h-1 bg-gradient-to-r from-transparent to-stone-300"></div>
-                   <div className="h-1 bg-stone-300"></div>
-                   <div className="h-1 bg-gradient-to-l from-transparent to-stone-300"></div>
-                </div>
-             </div>
-          </div>
-        )}
-        
-        {/* VIEW: GALLERY - REDESIGNED */}
-        {activeTab === 'gallery' && (
-          <div className="animate-fade-in-up">
-            <div className="mb-10 text-center max-w-3xl mx-auto">
-              {/* Collection Tabs */}
-              <div className="flex justify-center space-x-8 mb-8 border-b border-stone-200 pb-2">
-                <button 
-                  onClick={() => setActiveGalleryTab('ruturaj')}
-                  className={`pb-2 text-lg font-serif tracking-wide transition-colors ${activeGalleryTab === 'ruturaj' ? 'border-b-2 border-gray-900 text-gray-900' : 'text-stone-400 hover:text-gray-600'}`}
-                >
-                  Ruturaj
-                </button>
-                <button 
-                  onClick={() => setActiveGalleryTab('rootsAndBonds')}
-                  className={`pb-2 text-lg font-serif tracking-wide transition-colors ${activeGalleryTab === 'rootsAndBonds' ? 'border-b-2 border-gray-900 text-gray-900' : 'text-stone-400 hover:text-gray-600'}`}
-                >
-                  Roots and Bonds
-                </button>
+                    <div className="pt-16 grid grid-cols-3 gap-4 opacity-50 max-w-lg mx-auto">
+                       <div className="h-1 bg-gradient-to-r from-transparent to-stone-300"></div>
+                       <div className="h-1 bg-stone-300"></div>
+                       <div className="h-1 bg-gradient-to-l from-transparent to-stone-300"></div>
+                    </div>
+                 </div>
               </div>
+            )}
+            
+            {/* VIEW: GALLERY - REDESIGNED */}
+            {activeTab === 'gallery' && (
+              <div className="w-full">
+                <div className="mb-10 text-center max-w-3xl mx-auto">
+                  {/* Collection Tabs */}
+                  <div className="flex justify-center space-x-8 mb-8 border-b border-stone-200 pb-2">
+                    <button 
+                      onClick={() => setActiveGalleryTab('ruturaj')}
+                      className={`pb-2 text-lg font-serif tracking-wide transition-colors ${activeGalleryTab === 'ruturaj' ? 'border-b-2 border-gray-900 text-gray-900' : 'text-stone-400 hover:text-gray-600'}`}
+                    >
+                      Ruturaj
+                    </button>
+                    <button 
+                      onClick={() => setActiveGalleryTab('rootsAndBonds')}
+                      className={`pb-2 text-lg font-serif tracking-wide transition-colors ${activeGalleryTab === 'rootsAndBonds' ? 'border-b-2 border-gray-900 text-gray-900' : 'text-stone-400 hover:text-gray-600'}`}
+                    >
+                      Roots and Bonds
+                    </button>
+                  </div>
 
-              <h2 className="text-3xl md:text-4xl font-serif text-gray-900 mb-4">
-                {activeGalleryTab === 'ruturaj' ? 'The Ruturaj Collection' : 'Roots and Bonds'}
-              </h2>
-              <p className="text-gray-600 italic leading-relaxed font-serif">
-                "{activeGalleryTab === 'ruturaj' ? artist.ruturajStatement : 'Exploring our intimate connection with the universe—the bonds between man, nature, and the divine.'}"
-              </p>
-            </div>
+                  <div key={`${activeGalleryTab}-text`} className="animate-fade-in-up">
+                    <h2 className="text-3xl md:text-4xl font-serif text-gray-900 mb-4">
+                      {activeGalleryTab === 'ruturaj' ? 'The Ruturaj Collection' : 'Roots and Bonds'}
+                    </h2>
+                    <p className="text-gray-600 italic leading-relaxed font-serif">
+                      "{activeGalleryTab === 'ruturaj' ? artist.ruturajStatement : 'Exploring our intimate connection with the universe—the bonds between man, nature, and the divine.'}"
+                    </p>
+                  </div>
+                </div>
 
-            {/* REDESIGNED GALLERY GRID - No aspect ratio constraint */}
-            <div key={activeGalleryTab} className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 animate-fade-in-up">
-              {collections[activeGalleryTab].map((art: any) => (
-                <div 
-                  key={art.id} 
-                  onClick={() => setSelectedArt(art)}
-                  className="group cursor-pointer bg-white rounded-sm shadow-sm hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 overflow-hidden flex flex-col"
-                >
-                  {/* FIXED HEIGHT IMAGE CONTAINER - Same size for all cards */}
-                  <div className="w-full h-[250px] md:h-[350px] bg-stone-50 flex items-center justify-center relative overflow-hidden">
-                    {art.image ? (
-                      <div className="relative w-full h-full">
-                        {!imageLoadingStates[art.id] && (
-                          <div className="absolute inset-0 flex items-center justify-center bg-stone-100">
-                            <Loader className="w-8 h-8 text-stone-400 animate-spin" />
+                {/* REDESIGNED GALLERY GRID - No aspect ratio constraint */}
+                <div key={`${activeGalleryTab}-grid`} className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 animate-fade-in-up">
+                  {collections[activeGalleryTab].map((art: any) => (
+                    <div 
+                      key={art.id} 
+                      onClick={() => setSelectedArt(art)}
+                      className="group cursor-pointer bg-white rounded-sm shadow-sm hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 overflow-hidden flex flex-col"
+                    >
+                      {/* FIXED HEIGHT IMAGE CONTAINER - Same size for all cards */}
+                      <div className="w-full h-[250px] md:h-[350px] bg-white flex items-center justify-center relative overflow-hidden">
+                        {art.image ? (
+                          <div className="relative w-full h-full">
+                            {!imageLoadingStates[art.id] && (
+                              <div className="absolute inset-0 flex items-center justify-center bg-stone-100">
+                                <Loader className="w-8 h-8 text-stone-400 animate-spin" />
+                              </div>
+                            )}
+                            <img 
+                              src={art.image} 
+                              alt={art.title} 
+                              referrerPolicy="no-referrer"
+                              onLoad={() => handleImageLoad(art.id)}
+                              className={`w-full h-full object-contain transition-all duration-700 ${
+                                imageLoadingStates[art.id] ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+                              } group-hover:scale-105`}
+                              style={{ objectPosition: 'center' }}
+                            />
+                          </div>
+                        ) : (
+                          <div className="flex flex-col items-center justify-center p-8 text-stone-400">
+                            <Image className="mb-2 w-12 h-12 opacity-40" />
+                            <span className="opacity-60 text-sm tracking-widest">ARTWORK IMAGE</span>
                           </div>
                         )}
-                        <img 
-                          src={art.image} 
-                          alt={art.title} 
-                          referrerPolicy="no-referrer"
-                          onLoad={() => handleImageLoad(art.id)}
-                          className={`w-full h-full object-contain p-4 transition-all duration-700 ${
-                            imageLoadingStates[art.id] ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
-                          } group-hover:scale-105`}
-                          style={{ objectPosition: 'center' }}
-                        />
                       </div>
-                    ) : (
-                      <div className="flex flex-col items-center justify-center p-8 text-stone-400">
-                        <Image className="mb-2 w-12 h-12 opacity-40" />
-                        <span className="opacity-60 text-sm tracking-widest">ARTWORK IMAGE</span>
+                      
+                      <div className="p-3 md:p-6 text-center">
+                        <h3 className="text-sm md:text-xl font-serif text-gray-900 mb-1 truncate">{art.title}</h3>
+                        <p className="text-stone-500 text-[10px] md:text-sm uppercase tracking-wide truncate">{art.size}</p>
                       </div>
-                    )}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* VIEW: ABOUT / STATEMENT */}
+            {activeTab === 'about' && (
+              <div className="max-w-4xl mx-auto">
+                <div className="bg-white p-8 md:p-16 shadow-sm border border-stone-100 rounded-sm">
+                  <h1 className="text-4xl md:text-5xl font-serif text-center mb-12 text-gray-900">Artist Statement</h1>
+                  <div className="prose prose-lg prose-stone mx-auto">
+                    <p className="text-lg md:text-xl text-gray-700 leading-9 mb-10 first-letter:text-6xl first-letter:font-serif first-letter:text-gray-900 first-letter:mr-3 first-letter:float-left first-letter:leading-[0.8]">
+                      {artist.statement}
+                    </p>
+                    <div className="w-24 h-1 bg-stone-300 mx-auto my-12"></div>
+                    <h3 className="text-2xl md:text-3xl font-serif text-center mb-6">On Ruturaj</h3>
+                    <p className="text-lg md:text-xl text-gray-700 leading-9 italic text-center">
+                      "{artist.ruturajStatement}"
+                    </p>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* VIEW: CV */}
+            {activeTab === 'cv' && (
+              <div className="max-w-4xl mx-auto space-y-8">
+                
+                {/* Education */}
+                <div className="bg-white p-6 md:p-10 shadow-sm rounded-sm border border-stone-100">
+                  <div className="flex items-center mb-8">
+                    <Layers className="w-6 h-6 text-stone-400 mr-3" />
+                    <h2 className="text-2xl md:text-3xl font-serif">Education</h2>
+                  </div>
+                  <div className="space-y-6 border-l-2 border-stone-200 pl-6">
+                    {resume.education.map((edu, idx) => (
+                      <div key={idx} className="relative">
+                        <div className="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-stone-300 border-4 border-white"></div>
+                        <p className="text-xs uppercase tracking-widest text-stone-400 mb-1">{edu.type}</p>
+                        <h3 className="text-lg text-gray-900 mb-1">{edu.title}</h3>
+                        <p className="text-stone-600">{edu.inst}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Awards & Exhibitions */}
+                <div className="bg-white p-6 md:p-10 shadow-sm rounded-sm border border-stone-100">
+                  <div className="flex items-center mb-8">
+                    <Award className="w-6 h-6 text-stone-400 mr-3" />
+                    <h2 className="text-2xl md:text-3xl font-serif">Achievements & Shows</h2>
                   </div>
                   
-                  <div className="p-3 md:p-6 text-center">
-                    <h3 className="text-sm md:text-xl font-serif text-gray-900 mb-1 truncate">{art.title}</h3>
-                    <p className="text-stone-500 text-[10px] md:text-sm uppercase tracking-wide truncate">{art.size}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
-
-        {/* VIEW: ABOUT / STATEMENT */}
-        {activeTab === 'about' && (
-          <div className="max-w-4xl mx-auto animate-fade-in-up">
-            <div className="bg-white p-8 md:p-16 shadow-sm border border-stone-100 rounded-sm">
-              <h1 className="text-4xl md:text-5xl font-serif text-center mb-12 text-gray-900">Artist Statement</h1>
-              <div className="prose prose-lg prose-stone mx-auto">
-                <p className="text-lg md:text-xl text-gray-700 leading-9 mb-10 first-letter:text-6xl first-letter:font-serif first-letter:text-gray-900 first-letter:mr-3 first-letter:float-left first-letter:leading-[0.8]">
-                  {artist.statement}
-                </p>
-                <div className="w-24 h-1 bg-stone-300 mx-auto my-12"></div>
-                <h3 className="text-2xl md:text-3xl font-serif text-center mb-6">On Ruturaj</h3>
-                <p className="text-lg md:text-xl text-gray-700 leading-9 italic text-center">
-                  "{artist.ruturajStatement}"
-                </p>
-              </div>
-            </div>
-          </div>
-        )}
-
-        {/* VIEW: CV */}
-        {activeTab === 'cv' && (
-          <div className="max-w-4xl mx-auto animate-fade-in-up space-y-8">
-            
-            {/* Education */}
-            <div className="bg-white p-6 md:p-10 shadow-sm rounded-sm border border-stone-100">
-              <div className="flex items-center mb-8">
-                <Layers className="w-6 h-6 text-stone-400 mr-3" />
-                <h2 className="text-2xl md:text-3xl font-serif">Education</h2>
-              </div>
-              <div className="space-y-6 border-l-2 border-stone-200 pl-6">
-                {resume.education.map((edu, idx) => (
-                  <div key={idx} className="relative">
-                    <div className="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-stone-300 border-4 border-white"></div>
-                    <p className="text-xs uppercase tracking-widest text-stone-400 mb-1">{edu.type}</p>
-                    <h3 className="text-lg text-gray-900 mb-1">{edu.title}</h3>
-                    <p className="text-stone-600">{edu.inst}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Awards & Exhibitions */}
-            <div className="bg-white p-6 md:p-10 shadow-sm rounded-sm border border-stone-100">
-              <div className="flex items-center mb-8">
-                <Award className="w-6 h-6 text-stone-400 mr-3" />
-                <h2 className="text-2xl md:text-3xl font-serif">Achievements & Shows</h2>
-              </div>
-              
-              <div className="space-y-8">
-                <div>
-                  <h3 className="text-lg mb-4 text-gray-900 border-b border-stone-100 pb-2">Awards</h3>
-                  <ul className="list-disc list-inside text-stone-700 ml-2 space-y-2">
-                    {resume.awards.map((a, i) => <li key={i}>{a}</li>)}
-                  </ul>
-                </div>
-
-                <div>
-                  <h3 className="text-lg mb-4 text-gray-900 border-b border-stone-100 pb-2">Exhibitions</h3>
-                  <div className="space-y-4 text-stone-700">
-                    <div className="bg-stone-50 p-4 rounded">
-                      <span className="text-gray-800 block mb-1">Solo Exhibitions</span>
-                      <p>{resume.soloShows}</p>
+                  <div className="space-y-8">
+                    <div>
+                      <h3 className="text-lg mb-4 text-gray-900 border-b border-stone-100 pb-2">Awards</h3>
+                      <ul className="list-disc list-inside text-stone-700 ml-2 space-y-2">
+                        {resume.awards.map((a, i) => <li key={i}>{a}</li>)}
+                      </ul>
                     </div>
-                    <div className="bg-stone-50 p-4 rounded">
-                      <span className="text-gray-800 block mb-1">Group Exhibitions</span>
-                      <p>{resume.groupShows}</p>
+
+                    <div>
+                      <h3 className="text-lg mb-4 text-gray-900 border-b border-stone-100 pb-2">Exhibitions</h3>
+                      <div className="space-y-4 text-stone-700">
+                        <div className="bg-stone-50 p-4 rounded">
+                          <span className="text-gray-800 block mb-1">Solo Exhibitions</span>
+                          <p>{resume.soloShows}</p>
+                        </div>
+                        <div className="bg-stone-50 p-4 rounded">
+                          <span className="text-gray-800 block mb-1">Group Exhibitions</span>
+                          <p>{resume.groupShows}</p>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
 
-            {/* Collections */}
-            <div className="bg-white p-6 md:p-10 shadow-sm rounded-sm border border-stone-100">
-              <h2 className="text-2xl md:text-3xl font-serif mb-8">Select Collectors</h2>
-              <div className="grid md:grid-cols-2 gap-4">
-                {resume.collections.map((col, idx) => (
-                  <div key={idx} className="flex items-center bg-stone-50 p-4 rounded-md hover:bg-stone-100 transition-colors">
-                    <div className="w-2 h-2 bg-stone-400 rounded-full mr-4 flex-shrink-0"></div>
-                    <span className="text-stone-700">{col}</span>
+                {/* Collections */}
+                <div className="bg-white p-6 md:p-10 shadow-sm rounded-sm border border-stone-100">
+                  <h2 className="text-2xl md:text-3xl font-serif mb-8">Select Collectors</h2>
+                  <div className="grid md:grid-cols-2 gap-4">
+                    {resume.collections.map((col, idx) => (
+                      <div key={idx} className="flex items-center bg-stone-50 p-4 rounded-md hover:bg-stone-100 transition-colors">
+                        <div className="w-2 h-2 bg-stone-400 rounded-full mr-4 flex-shrink-0"></div>
+                        <span className="text-stone-700">{col}</span>
+                      </div>
+                    ))}
                   </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        )}
-
-        {/* VIEW: CONTACT */}
-        {activeTab === 'contact' && (
-          <div className="max-w-2xl mx-auto animate-fade-in-up">
-            <div className="bg-white p-8 md:p-12 shadow-sm text-center rounded-sm border border-stone-100">
-              <h2 className="text-3xl md:text-4xl font-serif mb-12">Get in Touch</h2>
-              
-              <div className="space-y-10">
-                <div className="flex flex-col items-center">
-                  <div className="bg-stone-100 p-5 rounded-full mb-4 hover:bg-stone-200 transition-colors">
-                    <Phone className="w-6 h-6 text-stone-600" />
-                  </div>
-                  <p className="text-xl font-medium">{artist.phone}</p>
-                  <p className="text-stone-500 text-sm uppercase mt-2 tracking-wider">Mobile</p>
-                </div>
-
-                <div className="flex flex-col items-center">
-                  <div className="bg-stone-100 p-5 rounded-full mb-4 hover:bg-stone-200 transition-colors">
-                    <Mail className="w-6 h-6 text-stone-600" />
-                  </div>
-                  <a href={`mailto:${artist.email}`} className="text-xl font-medium hover:underline text-stone-800 break-all">{artist.email}</a>
-                  <p className="text-stone-500 text-sm uppercase mt-2 tracking-wider">Email</p>
-                </div>
-
-                <div className="flex flex-col items-center">
-                  <div className="bg-stone-100 p-5 rounded-full mb-4 hover:bg-stone-200 transition-colors">
-                    <MapPin className="w-6 h-6 text-stone-600" />
-                  </div>
-                  <p className="text-lg text-stone-700 max-w-md mx-auto leading-relaxed">{artist.address}</p>
-                  <p className="text-stone-500 text-sm uppercase mt-2 tracking-wider">Studio Address</p>
                 </div>
               </div>
+            )}
 
-              <div className="mt-12 pt-8 border-t border-stone-100">
-                <button 
-                  onClick={() => setShowQR(true)}
-                  className="inline-flex items-center px-8 py-4 bg-gray-900 text-white rounded hover:bg-gray-800 transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5"
-                >
-                  <Share2 className="w-4 h-4 mr-2" />
-                  Show QR Code
-                </button>
+            {/* VIEW: CONTACT */}
+            {activeTab === 'contact' && (
+              <div className="max-w-2xl mx-auto">
+                <div className="bg-white p-8 md:p-12 shadow-sm text-center rounded-sm border border-stone-100">
+                  <h2 className="text-3xl md:text-4xl font-serif mb-12">Get in Touch</h2>
+                  
+                  <div className="space-y-10">
+                    <div className="flex flex-col items-center">
+                      <div className="bg-stone-100 p-5 rounded-full mb-4 hover:bg-stone-200 transition-colors">
+                        <Phone className="w-6 h-6 text-stone-600" />
+                      </div>
+                      <p className="text-xl font-medium">{artist.phone}</p>
+                      <p className="text-stone-500 text-sm uppercase mt-2 tracking-wider">Mobile</p>
+                    </div>
+
+                    <div className="flex flex-col items-center">
+                      <div className="bg-stone-100 p-5 rounded-full mb-4 hover:bg-stone-200 transition-colors">
+                        <Mail className="w-6 h-6 text-stone-600" />
+                      </div>
+                      <a href={`mailto:${artist.email}`} className="text-xl font-medium hover:underline text-stone-800 break-all">{artist.email}</a>
+                      <p className="text-stone-500 text-sm uppercase mt-2 tracking-wider">Email</p>
+                    </div>
+
+                    <div className="flex flex-col items-center">
+                      <div className="bg-stone-100 p-5 rounded-full mb-4 hover:bg-stone-200 transition-colors">
+                        <MapPin className="w-6 h-6 text-stone-600" />
+                      </div>
+                      <p className="text-lg text-stone-700 max-w-md mx-auto leading-relaxed">{artist.address}</p>
+                      <p className="text-stone-500 text-sm uppercase mt-2 tracking-wider">Studio Address</p>
+                    </div>
+                  </div>
+
+                  <div className="mt-12 pt-8 border-t border-stone-100">
+                    <button 
+                      onClick={() => setShowQR(true)}
+                      className="inline-flex items-center px-8 py-4 bg-gray-900 text-white rounded hover:bg-gray-800 transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5"
+                    >
+                      <Share2 className="w-4 h-4 mr-2" />
+                      Show QR Code
+                    </button>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-        )}
-
+            )}
+        </div>
       </main>
 
       {/* Footer */}
@@ -720,7 +722,7 @@ const Portfolio = () => {
             to { opacity: 1; transform: translateY(0); }
         }
         .animate-fade-in { animation: fadeIn 0.5s ease-out; }
-        .animate-fade-in-up { animation: fadeInUp 0.5s ease-out; }
+        .animate-fade-in-up { animation: fadeInUp 0.5s ease-out both; }
         .animate-scale-up { animation: scaleUp 0.3s ease-out; }
         .animate-fade-in-down { animation: fadeInDown 0.3s ease-out; }
         
