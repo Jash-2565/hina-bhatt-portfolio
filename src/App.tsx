@@ -407,7 +407,7 @@ const Portfolio = () => {
                       className="group cursor-pointer bg-white rounded-sm shadow-sm hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 overflow-hidden flex flex-col"
                     >
                       {/* FIXED HEIGHT IMAGE CONTAINER - Same size for all cards */}
-                      <div className="w-full h-[250px] md:h-[350px] bg-white flex items-center justify-center relative overflow-hidden">
+                      <div className="w-full aspect-square bg-white flex items-center justify-center relative overflow-hidden">
                         {art.image ? (
                           <div className="relative w-full h-full">
                             {!imageLoadingStates[art.id] && (
@@ -420,7 +420,7 @@ const Portfolio = () => {
                               alt={art.title} 
                               referrerPolicy="no-referrer"
                               onLoad={() => handleImageLoad(art.id)}
-                              className={`w-full h-full object-contain transition-all duration-700 ${
+                              className={`w-full h-full object-contain p-6 transition-all duration-700 ${
                                 imageLoadingStates[art.id] ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
                               } group-hover:scale-105`}
                               style={{ objectPosition: 'center' }}
