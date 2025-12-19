@@ -207,6 +207,60 @@ const Portfolio = () => {
         price: "Price on Request", 
         color: "bg-stone-200", 
         image: "https://imagizer.imageshack.com/img921/6076/sn44zM.jpg" 
+        },
+        { 
+        id: 208, 
+        title: "Roots and Bonds - 8", 
+        size: "24 x 36 Inches", 
+        medium: "Mix Media on Canvas", 
+        price: "Price on Request", 
+        color: "bg-stone-200", 
+        image: "https://imagizer.imageshack.com/img922/50/kyh6M4.jpg" 
+        },
+        { 
+        id: 209, 
+        title: "Roots and Bonds - 9", 
+        size: "24 x 24 Inches", 
+        medium: "Mix Media on Canvas", 
+        price: "Price on Request", 
+        color: "bg-stone-200", 
+        image: "https://imagizer.imageshack.com/img923/3425/uCCvrj.jpg" 
+        },
+        { 
+        id: 210, 
+        title: "Roots and Bonds - 10", 
+        size: "24 x 36 Inches", 
+        medium: "Mix Media on Canvas", 
+        price: "Price on Request", 
+        color: "bg-stone-200", 
+        image: "https://imagizer.imageshack.com/img921/6107/8reJKn.jpg" 
+        },
+        { 
+        id: 211, 
+        title: "Roots and Bonds - 11", 
+        size: "24 x 24 Inches", 
+        medium: "Mix Media on Canvas", 
+        price: "Price on Request", 
+        color: "bg-stone-200", 
+        image: "https://imagizer.imageshack.com/img922/7646/w1zYSj.jpg" 
+        },
+        { 
+        id: 212, 
+        title: "Roots and Bonds - 12", 
+        size: "24 x 24 Inches", 
+        medium: "Mix Media on Canvas", 
+        price: "Price on Request", 
+        color: "bg-stone-200", 
+        image: "https://imagizer.imageshack.com/img923/3443/TYHV8v.jpg" 
+        },
+        { 
+        id: 213, 
+        title: "Roots and Bonds - 13", 
+        size: "24 x 48 Inches", 
+        medium: "Mix Media on Canvas", 
+        price: "Price on Request", 
+        color: "bg-stone-200", 
+        image: "https://imagizer.imageshack.com/img923/3443/TYHV8v.jpg" 
         }
     ]
   };
