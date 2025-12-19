@@ -1,5 +1,5 @@
 // @ts-nocheck
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Phone, Mail, MapPin, Award, Layers, Image, X, Share2, Menu, Download, ArrowRight, Loader } from 'lucide-react';
 
 const Portfolio = () => {
@@ -9,6 +9,16 @@ const Portfolio = () => {
   const [showQR, setShowQR] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [imageLoadingStates, setImageLoadingStates] = useState<Record<number, boolean>>({});
+  
+  // Ref for the details container to control scrolling
+  const detailsRef = useRef<HTMLDivElement>(null);
+
+  // Scroll details to top when selectedArt changes
+  useEffect(() => {
+    if (selectedArt && detailsRef.current) {
+      detailsRef.current.scrollTop = 0;
+    }
+  }, [selectedArt]);
 
   // Artist Data
   const artist = {
@@ -605,7 +615,7 @@ const Portfolio = () => {
             </button>
             
             {/* REDESIGNED IMAGE CONTAINER - Full view, no cropping */}
-            <div className="w-full md:w-2/3 flex items-center justify-center bg-white relative overflow-auto flex-shrink-0 p-4 md:p-12">
+            <div className="w-full md:w-2/3 flex items-center justify-center bg-white relative overflow-auto flex-shrink-0 pt-12 md:p-12 p-4">
                {selectedArt.image ? (
                 <img 
                   src={selectedArt.image} 
@@ -628,7 +638,7 @@ const Portfolio = () => {
             </div>
             
             {/* Details Container */}
-            <div className="w-full md:w-1/3 bg-white p-6 md:p-10 flex flex-col justify-center overflow-auto">
+            <div ref={detailsRef} className="w-full md:w-1/3 bg-white p-6 md:p-10 flex flex-col justify-center overflow-auto pt-4 md:pt-12">
               <div>
                 <h3 className="text-3xl md:text-4xl font-serif text-gray-900 mb-4">{selectedArt.title}</h3>
                 <div className="h-0.5 w-16 bg-gray-900 mb-8"></div>
