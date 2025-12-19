@@ -335,7 +335,7 @@ const Portfolio = () => {
 
         {/* VIEW: HOME */}
         {activeTab === 'home' && (
-          <div className="animate-fade-in flex flex-col items-center justify-center min-h-[60vh] md:min-h-[70vh] text-center">
+          <div className="animate-fade-in-up flex flex-col items-center justify-center min-h-[60vh] md:min-h-[70vh] text-center">
              <div className="max-w-3xl space-y-8">
                 <div className="inline-block p-4 border-t border-b border-stone-300 mb-4">
                   <span className="text-sm md:text-base uppercase tracking-[0.3em] text-stone-500">Fine Artist</span>
@@ -370,7 +370,7 @@ const Portfolio = () => {
         
         {/* VIEW: GALLERY - REDESIGNED */}
         {activeTab === 'gallery' && (
-          <div className="animate-fade-in">
+          <div className="animate-fade-in-up">
             <div className="mb-10 text-center max-w-3xl mx-auto">
               {/* Collection Tabs */}
               <div className="flex justify-center space-x-8 mb-8 border-b border-stone-200 pb-2">
@@ -397,7 +397,7 @@ const Portfolio = () => {
             </div>
 
             {/* REDESIGNED GALLERY GRID - No aspect ratio constraint */}
-            <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
+            <div key={activeGalleryTab} className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 animate-fade-in-up">
               {collections[activeGalleryTab].map((art: any) => (
                 <div 
                   key={art.id} 
@@ -444,7 +444,7 @@ const Portfolio = () => {
 
         {/* VIEW: ABOUT / STATEMENT */}
         {activeTab === 'about' && (
-          <div className="max-w-4xl mx-auto animate-fade-in">
+          <div className="max-w-4xl mx-auto animate-fade-in-up">
             <div className="bg-white p-8 md:p-16 shadow-sm border border-stone-100 rounded-sm">
               <h1 className="text-4xl md:text-5xl font-serif text-center mb-12 text-gray-900">Artist Statement</h1>
               <div className="prose prose-lg prose-stone mx-auto">
@@ -463,7 +463,7 @@ const Portfolio = () => {
 
         {/* VIEW: CV */}
         {activeTab === 'cv' && (
-          <div className="max-w-4xl mx-auto animate-fade-in space-y-8">
+          <div className="max-w-4xl mx-auto animate-fade-in-up space-y-8">
             
             {/* Education */}
             <div className="bg-white p-6 md:p-10 shadow-sm rounded-sm border border-stone-100">
@@ -531,7 +531,7 @@ const Portfolio = () => {
 
         {/* VIEW: CONTACT */}
         {activeTab === 'contact' && (
-          <div className="max-w-2xl mx-auto animate-fade-in">
+          <div className="max-w-2xl mx-auto animate-fade-in-up">
             <div className="bg-white p-8 md:p-12 shadow-sm text-center rounded-sm border border-stone-100">
               <h2 className="text-3xl md:text-4xl font-serif mb-12">Get in Touch</h2>
               
@@ -707,6 +707,10 @@ const Portfolio = () => {
           from { opacity: 0; }
           to { opacity: 1; }
         }
+        @keyframes fadeInUp {
+          from { opacity: 0; transform: translateY(20px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
         @keyframes scaleUp {
           from { transform: scale(0.95); opacity: 0; }
           to { transform: scale(1); opacity: 1; }
@@ -716,6 +720,7 @@ const Portfolio = () => {
             to { opacity: 1; transform: translateY(0); }
         }
         .animate-fade-in { animation: fadeIn 0.5s ease-out; }
+        .animate-fade-in-up { animation: fadeInUp 0.5s ease-out; }
         .animate-scale-up { animation: scaleUp 0.3s ease-out; }
         .animate-fade-in-down { animation: fadeInDown 0.3s ease-out; }
         
