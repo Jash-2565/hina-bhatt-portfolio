@@ -21,6 +21,11 @@ const Portfolio = () => {
     }
   }, [selectedArt]);
 
+  // Reset image loading states when switching collections
+  useEffect(() => {
+    setImageLoadingStates({});
+  }, [activeGalleryTab]);
+
 
   // QR Code URL
   const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(typeof window !== 'undefined' ? window.location.href : '')}`;
@@ -48,8 +53,8 @@ const Portfolio = () => {
       <nav className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-stone-200 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            <button 
-              onClick={() => setActiveTab('home')}
+            <button
+              onClick={() => { setActiveTab('home'); setIsMenuOpen(false); }}
               className="text-xl font-serif tracking-wider text-gray-900 hover:opacity-80 transition-opacity"
             >
               HINA BHATT
@@ -129,16 +134,16 @@ const Portfolio = () => {
               <div className="w-full">
                 <div className="mb-10 text-center max-w-3xl mx-auto">
                   {/* Collection Tabs */}
-                  <div className="flex justify-center space-x-8 mb-8 border-b border-stone-200 pb-2">
-                    <button 
+                  <div className="flex justify-center space-x-8 mb-8 border-b border-stone-200">
+                    <button
                       onClick={() => setActiveGalleryTab('ruturaj')}
-                      className={`pb-2 text-lg font-serif tracking-wide transition-colors ${activeGalleryTab === 'ruturaj' ? 'border-b-2 border-gray-900 text-gray-900' : 'text-stone-400 hover:text-gray-600'}`}
+                      className={`pb-3 text-lg font-serif tracking-wide transition-colors ${activeGalleryTab === 'ruturaj' ? 'border-b-2 border-gray-900 text-gray-900' : 'text-stone-400 hover:text-gray-600'}`}
                     >
                       Ruturaj
                     </button>
-                    <button 
+                    <button
                       onClick={() => setActiveGalleryTab('rootsAndBonds')}
-                      className={`pb-2 text-lg font-serif tracking-wide transition-colors ${activeGalleryTab === 'rootsAndBonds' ? 'border-b-2 border-gray-900 text-gray-900' : 'text-stone-400 hover:text-gray-600'}`}
+                      className={`pb-3 text-lg font-serif tracking-wide transition-colors ${activeGalleryTab === 'rootsAndBonds' ? 'border-b-2 border-gray-900 text-gray-900' : 'text-stone-400 hover:text-gray-600'}`}
                     >
                       Roots and Bonds
                     </button>
@@ -175,7 +180,7 @@ const Portfolio = () => {
                               src={art.image}
                               alt={art.title}
                               onLoad={() => handleImageLoad(art.id)}
-                              className={`w-full h-full object-contain p-2 md:p-6 transition-all duration-700 ${
+                              className={`w-full h-full object-contain p-3 md:p-6 transition-all duration-700 ${
                                 imageLoadingStates[art.id] ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
                               } group-hover:scale-105`}
                               style={{ objectPosition: 'center' }}
@@ -190,8 +195,8 @@ const Portfolio = () => {
                       </div>
                       
                       <div className="p-3 md:p-6 text-center">
-                        <h3 className="text-sm md:text-xl font-serif text-gray-900 mb-1 truncate">{art.title}</h3>
-                        <p className="text-stone-500 text-[10px] md:text-sm uppercase tracking-wide truncate">{art.size}</p>
+                        <h3 className="text-sm md:text-xl font-serif text-gray-900 mb-1 leading-snug">{art.title}</h3>
+                        <p className="text-stone-500 text-[10px] md:text-sm uppercase tracking-wide">{art.size}</p>
                       </div>
                     </div>
                   ))}
@@ -360,7 +365,7 @@ const Portfolio = () => {
             </button>
             
             {/* REDESIGNED IMAGE CONTAINER - Full view, no cropping */}
-            <div className="w-full md:w-2/3 flex items-center justify-center bg-white relative overflow-auto flex-shrink-0 pt-12 md:p-12 p-4">
+            <div className="w-full md:w-2/3 flex items-center justify-center bg-white relative overflow-auto flex-shrink-0 p-4 pt-14 md:p-12">
                {selectedArt.image ? (
                 <img
                   src={selectedArt.image}
@@ -410,15 +415,12 @@ const Portfolio = () => {
                 </div>
 
                 <div className="mt-8">
-                  <button 
-                    onClick={() => {
-                      setSelectedArt(null);
-                      setActiveTab('contact');
-                    }}
-                    className="w-full px-6 py-3 bg-gray-900 text-white text-sm tracking-wide rounded hover:bg-gray-800 transition-all shadow-md hover:shadow-lg"
+                  <a
+                    href={`mailto:${artist.email}?subject=Enquiry: ${selectedArt.title}`}
+                    className="block w-full px-6 py-3 bg-gray-900 text-white text-sm tracking-wide rounded hover:bg-gray-800 transition-all shadow-md hover:shadow-lg text-center"
                   >
                     Inquire About This Piece
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>
