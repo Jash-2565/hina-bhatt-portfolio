@@ -1,6 +1,7 @@
 // @ts-nocheck
 import React, { useState, useEffect, useRef } from 'react';
 import { Phone, Mail, MapPin, Award, Layers, Image, X, Share2, Menu, Download, ArrowRight, Loader } from 'lucide-react';
+import { artist, resume, collections } from './data';
 
 const Portfolio = () => {
   const [activeTab, setActiveTab] = useState('home');
@@ -20,261 +21,6 @@ const Portfolio = () => {
     }
   }, [selectedArt]);
 
-  // Artist Data
-  const artist = {
-    name: "Hina Bhatt",
-    dob: "15th December 1970",
-    email: "hina.bhatt@yahoo.com",
-    phone: "+91 9766927455",
-    address: "F-704, Lunkad Sky Lounge, Lane 7, Kalyaninagar, Pune - 411006, Maharashtra, India",
-    statement: "Nature has always been my greatest source of inspiration and reflection. Its ever-changing light, colours, and moods speak to the rhythm of life itself. Through my work, I explore our intimate connection with the universe—the bonds between man, nature, and the divine. My paintings move between abstraction and emotion, expressing the energies, textures, and spiritual undercurrents that flow through existence. Each brushstroke becomes a meditation on harmony, transformation, and the quiet truths that nature reveals when we pause, observe, and allow ourselves to feel deeply.",
-    ruturajStatement: "Ruturaj celebrates spring as a symbol of renewal, abundance, and divine joy. Inspired by Krishna’s words, these works reflect the blossoming of life both in nature and within the self. Each painting is a meditation on harmony—with the eternal, with nature, and with one’s inner being. Though seasons may change, a spirit connected to the divine remains in perpetual bloom—radiant, grateful, and full of grace."
-  };
-
-  const resume = {
-    education: [
-      { title: "Bachelor of Fine Arts", inst: "Stella Maris College, Chennai (1991)", type: "Graduation" },
-      { title: "Diploma in Textile Designing", inst: "Nirmala Niketan Mumbai (1993)", type: "Diploma" },
-      { title: "Management of Social Initiatives", inst: "IIM Kozhikode", type: "MDP" }
-    ],
-    awards: ["Gold Award at Sumbaran Art Foundation"],
-    soloShows: "7 Solo Exhibitions (Pune, Mumbai)",
-    groupShows: "40+ Group Shows in India and Abroad (Chennai, Mumbai, Bangalore, Pune, Dubai, Doha, New Delhi, Lucknow, Ahmedabad, Varanasi)",
-    collections: [
-      "Lakshya Outdoor Media",
-      "MD - JP Morgan",
-      "CEO, Bajaj Finance",
-      "Rahi Platform Technologies",
-      "Yoga Centre - Mumbai",
-      "Many private collectors in India and abroad"
-    ]
-  };
-
-  // ARTWORK COLLECTIONS
-  const collections = {
-    ruturaj: [
-        { 
-        id: 1, 
-        title: "Ruturaj-1", 
-        size: "24 × 24 inches", 
-        medium: "Oil on Canvas", 
-        price: "Price on Request", 
-        color: "bg-amber-100",
-        image: "https://i.postimg.cc/v8fYz9RZ/9103CEB7-507C-4DE0-8DC3-332BFE96CE70-1-102-o.jpg" 
-        },
-        { 
-        id: 2, 
-        title: "Ruturaj-7", 
-        size: "36 × 36 inches", 
-        medium: "Oil on Canvas", 
-        price: "Price on Request", 
-        color: "bg-orange-100",
-        image: "https://i.postimg.cc/J0Y5thNW/F04A3B1D-B158-4256-ABD8-427EFE983C0C-1-102-o.jpg"
-        },
-        { 
-        id: 3, 
-        title: "Ruturaj-15", 
-        size: "24 × 24 inches", 
-        medium: "Oil on Canvas", 
-        price: "Price on Request", 
-        color: "bg-yellow-100", 
-        image: "https://i.postimg.cc/Df96XSLv/35D9FB1B-ED18-4A73-A34A-378C22D9E62D-1-102-o.jpg" 
-        },
-        { 
-        id: 4, 
-        title: "Ruturaj-23", 
-        size: "60 × 36 inches", 
-        medium: "Oil on Canvas", 
-        price: "Price on Request", 
-        color: "bg-rose-100", 
-        image: "https://i.postimg.cc/P538179w/FD571F0D-5DE6-44B2-870D-97971731E75A-1-102-o.jpg" 
-        },
-        { 
-        id: 5, 
-        title: "Ruturaj-39", 
-        size: "60 × 36 inches", 
-        medium: "Oil on Canvas", 
-        price: "Price on Request", 
-        color: "bg-red-50", 
-        image: "https://i.postimg.cc/dV1hQB3T/33137944-AAD5-4530-91D3-75170872CCE2-4-5005-c.jpg" 
-        },
-        { 
-        id: 6, 
-        title: "Ruturaj-43", 
-        size: "36 × 36 inches", 
-        medium: "Oil on Canvas", 
-        price: "Price on Request", 
-        color: "bg-emerald-50", 
-        image: "https://i.postimg.cc/QdHMZdYL/5A38C771-458A-4A15-AD72-94BE02FBC99F-1-102-o.jpg" 
-        },
-        { 
-        id: 7, 
-        title: "Ruturaj-48", 
-        size: "36 × 36 inches", 
-        medium: "Oil on Canvas", 
-        price: "Price on Request", 
-        color: "bg-teal-50", 
-        image: "https://i.postimg.cc/TwqdJL1t/6187CAF2-89F4-4B6F-A3AC-2CD338AEAC9C-1-102-o.jpg" 
-        },
-        { 
-        id: 8, 
-        title: "Ruturaj-53", 
-        size: "30 × 30 inches", 
-        medium: "Oil on Canvas", 
-        price: "Price on Request", 
-        color: "bg-blue-50", 
-        image: "https://i.postimg.cc/25nrCb4J/702E2988-D099-4287-B8C3-0A0FA85DAA2F-1-102-o.jpg" 
-        },
-        { 
-        id: 9, 
-        title: "Ruturaj-54", 
-        size: "30 × 30 inches", 
-        medium: "Oil on Canvas", 
-        price: "Price on Request", 
-        color: "bg-indigo-50", 
-        image: "https://i.postimg.cc/CMrGGz8B/7F9A83C4-D794-4A1B-A540-234ABE244A1A-1-102-o.jpg" 
-        },
-        { 
-        id: 10, 
-        title: "Ruturaj-56", 
-        size: "30 × 30 inches", 
-        medium: "Oil on Canvas", 
-        price: "Price on Request", 
-        color: "bg-violet-50", 
-        image: "https://i.postimg.cc/d1L8pFPK/1D297077-5ABE-497D-8C41-3A66CA85C28E-1-102-o.jpg" 
-        },
-        { 
-        id: 11, 
-        title: "Ruturaj-61", 
-        size: "24 × 48 inches (Diptych)", 
-        medium: "Oil on Canvas", 
-        price: "Price on Request", 
-        extra: "Total: 16 sq. ft", 
-        color: "bg-purple-100", 
-        image: "https://i.postimg.cc/T3d5BxnX/EFC580D6-9826-4216-9297-EE776C0B08D0-1-102-o.jpg" 
-        },
-    ],
-    // New Collection: Roots and Bonds
-    rootsAndBonds: [
-        { 
-        id: 201, 
-        title: "Roots and Bonds - 1", 
-        size: "24 x 23 Inches", 
-        medium: "Mix Media on Canvas", 
-        price: "Price on Request", 
-        color: "bg-stone-200", 
-        image: "https://imagizer.imageshack.com/img924/3189/wiJjEH.jpg" 
-        },
-        { 
-        id: 202, 
-        title: "Roots and Bonds - 2", 
-        size: "18 x 18 Inches", 
-        medium: "Mix Media on Canvas", 
-        price: "Price on Request", 
-        color: "bg-stone-200", 
-        image: "https://imagizer.imageshack.com/img924/9132/eyRFqf.jpg" 
-        },
-        { 
-        id: 203, 
-        title: "Roots and Bonds - 3", 
-        size: "18 x 18 Inches", 
-        medium: "Mix Media on Canvas", 
-        price: "Price on Request", 
-        color: "bg-stone-200", 
-        image: "https://imagizer.imageshack.com/img923/6051/sHV9ac.jpg" 
-        },
-        { 
-        id: 204, 
-        title: "Roots and Bonds - 4", 
-        size: "18 x 18 Inches", 
-        medium: "Mix Media on Canvas", 
-        price: "Price on Request", 
-        color: "bg-stone-200", 
-        image: "https://imagizer.imageshack.com/img922/8008/Tam4ps.jpg" 
-        },
-        { 
-        id: 205, 
-        title: "Roots and Bonds - 5", 
-        size: "12 x 24 Inches", 
-        medium: "Mix Media on Canvas", 
-        price: "Price on Request", 
-        color: "bg-stone-200", 
-        image: "https://imagizer.imageshack.com/img924/889/QAXXVY.jpg" 
-        },
-        { 
-        id: 206, 
-        title: "Roots and Bonds - 6", 
-        size: "13 x 16 Inches", 
-        medium: "Mix Media on Canvas", 
-        price: "Price on Request", 
-        color: "bg-stone-200", 
-        image: "https://imagizer.imageshack.com/img921/9428/u28vtZ.jpg" 
-        },
-        { 
-        id: 207, 
-        title: "Roots and Bonds - 7", 
-        size: "13 x 16 Inches", 
-        medium: "Mix Media on Canvas", 
-        price: "Price on Request", 
-        color: "bg-stone-200", 
-        image: "https://imagizer.imageshack.com/img921/6076/sn44zM.jpg" 
-        },
-        { 
-        id: 208, 
-        title: "Roots and Bonds - 8", 
-        size: "24 x 36 Inches", 
-        medium: "Mix Media on Canvas", 
-        price: "Price on Request", 
-        color: "bg-stone-200", 
-        image: "https://imagizer.imageshack.com/img922/50/kyh6M4.jpg" 
-        },
-        { 
-        id: 209, 
-        title: "Roots and Bonds - 9", 
-        size: "24 x 24 Inches", 
-        medium: "Mix Media on Canvas", 
-        price: "Price on Request", 
-        color: "bg-stone-200", 
-        image: "https://imagizer.imageshack.com/img923/3425/uCCvrj.jpg" 
-        },
-        { 
-        id: 210, 
-        title: "Roots and Bonds - 10", 
-        size: "24 x 36 Inches", 
-        medium: "Mix Media on Canvas", 
-        price: "Price on Request", 
-        color: "bg-stone-200", 
-        image: "https://imagizer.imageshack.com/img921/6107/8reJKn.jpg" 
-        },
-        { 
-        id: 211, 
-        title: "Roots and Bonds - 11", 
-        size: "24 x 24 Inches", 
-        medium: "Mix Media on Canvas", 
-        price: "Price on Request", 
-        color: "bg-stone-200", 
-        image: "https://imagizer.imageshack.com/img922/7646/w1zYSj.jpg" 
-        },
-        { 
-        id: 212, 
-        title: "Roots and Bonds - 12", 
-        size: "24 x 24 Inches", 
-        medium: "Mix Media on Canvas", 
-        price: "Price on Request", 
-        color: "bg-stone-200", 
-        image: "https://imagizer.imageshack.com/img923/3443/TYHV8v.jpg" 
-        },
-        { 
-        id: 213, 
-        title: "Roots and Bonds - 13", 
-        size: "24 x 48 Inches", 
-        medium: "Mix Media on Canvas", 
-        price: "Price on Request", 
-        color: "bg-stone-200", 
-        image: "https://imagizer.imageshack.com/img923/3443/TYHV8v.jpg" 
-        }
-    ]
-  };
 
   // QR Code URL
   const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(typeof window !== 'undefined' ? window.location.href : '')}`;
@@ -425,10 +171,9 @@ const Portfolio = () => {
                                 <Loader className="w-8 h-8 text-stone-400 animate-spin" />
                               </div>
                             )}
-                            <img 
-                              src={art.image} 
-                              alt={art.title} 
-                              referrerPolicy="no-referrer"
+                            <img
+                              src={art.image}
+                              alt={art.title}
                               onLoad={() => handleImageLoad(art.id)}
                               className={`w-full h-full object-contain p-2 md:p-6 transition-all duration-700 ${
                                 imageLoadingStates[art.id] ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
@@ -617,10 +362,9 @@ const Portfolio = () => {
             {/* REDESIGNED IMAGE CONTAINER - Full view, no cropping */}
             <div className="w-full md:w-2/3 flex items-center justify-center bg-white relative overflow-auto flex-shrink-0 pt-12 md:p-12 p-4">
                {selectedArt.image ? (
-                <img 
-                  src={selectedArt.image} 
-                  alt={selectedArt.title} 
-                  referrerPolicy="no-referrer"
+                <img
+                  src={selectedArt.image}
+                  alt={selectedArt.title}
                   className="max-w-full max-h-full object-contain"
                   style={{ 
                     width: 'auto', 
