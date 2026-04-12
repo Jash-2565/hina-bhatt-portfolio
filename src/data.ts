@@ -148,7 +148,7 @@ export const collections: Record<string, Artwork[]> = {
     {
       id: 201,
       title: "Roots and Bonds - 1",
-      size: "24 x 23 Inches",
+      size: "23 x 24 Inches",
       medium: "Mix Media on Canvas",
       price: "Price on Request",
       color: "bg-stone-200",
@@ -184,7 +184,7 @@ export const collections: Record<string, Artwork[]> = {
     {
       id: 205,
       title: "Roots and Bonds - 5",
-      size: "12 x 24 Inches",
+      size: "24 x 12 Inches",
       medium: "Mix Media on Canvas",
       price: "Price on Request",
       color: "bg-stone-200",
@@ -193,7 +193,7 @@ export const collections: Record<string, Artwork[]> = {
     {
       id: 206,
       title: "Roots and Bonds - 6",
-      size: "13 x 16 Inches",
+      size: "16 x 13 Inches",
       medium: "Mix Media on Canvas",
       price: "Price on Request",
       color: "bg-stone-200",
@@ -202,7 +202,7 @@ export const collections: Record<string, Artwork[]> = {
     {
       id: 207,
       title: "Roots and Bonds - 7",
-      size: "13 x 16 Inches",
+      size: "16 x 13 Inches",
       medium: "Mix Media on Canvas",
       price: "Price on Request",
       color: "bg-stone-200",
@@ -229,7 +229,7 @@ export const collections: Record<string, Artwork[]> = {
     {
       id: 210,
       title: "Roots and Bonds - 10",
-      size: "24 x 36 Inches",
+      size: "36 x 24 Inches",
       medium: "Mix Media on Canvas",
       price: "Price on Request",
       color: "bg-stone-200",
@@ -256,7 +256,7 @@ export const collections: Record<string, Artwork[]> = {
     {
       id: 213,
       title: "Roots and Bonds - 13",
-      size: "24 x 48 Inches",
+      size: "48 x 24 Inches",
       medium: "Mix Media on Canvas",
       price: "Price on Request",
       color: "bg-stone-200",
